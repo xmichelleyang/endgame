@@ -17,42 +17,31 @@
 
 <body>
 	<div class="center-container">
-		<h1>Profile</h1>
-		<p>Iron Man</p>
-		<p>911</p>
-		<div>
-			<div>
-				<p>MON <button onclick="location.href='/addMed'" type="button">+</button> </p>
-					<p>Advil 3PM </p>
-			</div>
-			<div>
-				<p>TUE <button onclick="location.href='/addMed'" type="button">+</button> </p>
-					<p>Advil 3PM </p>
-			</div>
-			<div>
-				<p>WED <button onclick="location.href='/addMed'" type="button">+</button> </p>
-					<p>Advil 3PM </p>
-			</div>
-			<div>
-				<p>THU <button onclick="location.href='/addMed'" type="button">+</button> </p>
-					<p>Advil 3PM </p>
-			</div>
-			<div>
-				<p>FRI <button onclick="location.href='/addMed'" type="button">+</button> </p>
-					<p>Advil 3PM </p>
-			</div>
-			<div>
-				<p>SAT <button onclick="location.href='/addMed'" type="button">+</button> </p>
-					<p>Advil 3PM </p>
-			</div>
-			<div>
-				<p>SUN <button onclick="location.href='/addMed'" type="button">+</button> </p>
-					<p>Advil 3PM </p>
-			</div>
+		<h1>Add New Medicine</h1>
 
+		<p>Name</p>
+		<input placeholder="Full Name" />
+
+		<p>Time</p>
+		<div class="btn-toolbar" role="group">
+			<button type="button" class="btn btn-secondary">MON</button>
+			<button type="button" class="btn btn-secondary">TUE</button>
+			<button type="button" class="btn btn-secondary">WED</button>
+			<button type="button" class="btn btn-secondary">THU</button>
+			<button type="button" class="btn btn-secondary">FRI</button>
+			<button type="button" class="btn btn-secondary">SAT</button>
+			<button type="button" class="btn btn-secondary">SUN</button>
 		</div>
+
+		<p>Description</p>
+		<input placeholder="Description" />
+
+		<p>Side effects	</p>
+		<input placeholder="Side effects" />
+		<button  onclick="location.href='/home'" type="button">Add</button>
 	</div>
-	<button onclick="location.href='/signup'" type="button">Create</button>
+
+
 	<nav class="navbar fixed-bottom navbar-light bg-light">
 		<div class="btn-group navCenter" role="group">
 			<button onclick="location.href='/addMed'" type="button" class="btn btn-secondary">+</button>
