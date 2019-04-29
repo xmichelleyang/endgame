@@ -10,3 +10,7 @@ exports.view = function(req, res){
 exports.viewOverview = function(req, res){
   res.render('overview');
 };
+
+exports.viewProfile = function(req, res){
+  res.render('profile');
+};
