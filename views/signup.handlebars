@@ -12,26 +12,29 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- Latest compiled Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
-	<h1>Welcome to Medilarm</h1>
-		<div class="login">
-			<div class="form-group">
-				<label>Username</label>
-				<input class="form-control" placeholder="Enter email">
-			</div>
-			<div class="form-group">
-				<label>Password</label>
-				<input class="form-control" placeholder="Password">
-			</div>
-			<button onclick="location.href='/home'" type="submit" class="btn btn-primary">Login</button>
-		</div>
+	<h1>New Account</h1>
 
-	<div class="signup">
-		<label>New?</label> </br>
-		<button onclick="location.href='/signup'" type="submit" class="btn btn-primary">Sign Up</button>
+	<div class="login">
+		<div class="form-group">
+			<label>Name</label>
+			<input class="form-control" placeholder="Full Name">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input class="form-control" placeholder="Password">
+		</div>
+		<div class="form-group">
+			<label>Phone Number</label>
+			<input class="form-control" placeholder="123-456-7890">
+		</div>
+		<button onclick="location.href='/home'" type="submit" class="btn btn-primary">Create</button>
 	</div>
+
+
 </body>
 
 </html>
