@@ -13,15 +13,47 @@
 	<!-- Latest compiled Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+
+
+	<script>
+
+	$(document).ready (() => {
+		console.log("hello browser");
+
+
+		$.ajax({
+			url: 'data',
+			type: 'GET',
+			dataType: 'json',
+			success: (data) => {
+				console.log("Ajax successful", data );
+				$("#user-name").html("<p>" + data["name"] + "</p>");
+				$("#user-info").html("<p><strong>Medications: </strong><br>" + data["medications"] + "</p>");
+
+			}
+		});
+
+		//JSON.stringify(data, undefined, 2)
+
+	});
+
+
+
+	// $(document).ajaxError( () => }   $("#status").html("Error: unknown ajax error!");})
+
+	</script>
+
 </head>
 
 <body>
 	<div class="center-container">
 		<h1>Profile</h1>
-		<p>Iron Man</p>
-		<p>911</p>
+		<p id="user-name">Iron Man</p>
 		<div>
-			<div>
+
+			Here is a list of your medications:
+			<pre id="user-info">  </div>
+			<!-- <div>
 				<p>MON <button onclick="location.href='/addMed'" type="button">+</button> </p>
 					<p>Advil 3PM </p>
 			</div>
@@ -48,11 +80,12 @@
 			<div>
 				<p>SUN <button onclick="location.href='/addMed'" type="button">+</button> </p>
 					<p>Advil 3PM </p>
-			</div>
+			</div> -->
 
 		</div>
 	</div>
-	<button onclick="location.href='/signup'" type="button">Create</button>
+
+	<!-- <button  onclick="location.href='/signup'" type="button">Create</button> -->
 	<nav class="navbar fixed-bottom navbar-light bg-light">
 		<div class="btn-group navCenter" role="group">
 			<button onclick="location.href='/addMed'" type="button" class="btn btn-secondary">+</button>
