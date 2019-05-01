@@ -42,6 +42,16 @@ exports.day = function(req, res){
 exports.medAll = function(req, res){
   res.render('medAll');
 };
+
+const fakeDatabase = {
+  name: "Iron Man",
+  medications: [("Advil at 3pm Monday"), ("Advil at 5pm Tuesday"),("Advil at 3pm Friday")]
+}
+
+exports.data = function(req, res){
+  console.log("Hello");
+  res.send(fakeDatabase);
+};
 // exports.view = function signUp(){
 //   res.render('signup');
 
