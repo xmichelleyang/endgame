@@ -26,6 +26,6 @@ Our idea is largely similar to the one we proposed in Milestone 1, although we h
 ### Profile Page
 ![profilepage](UISkeleton/profilepage.JPG)
 
-Explanation: Log-in Page stays the same as the prototypes. We picked the homepage of prototype 1 as the homescreen which gives an overview of all the scheduled medicine for the day. The medicine page has the same information as the prototype does besides the fact that it's not editable. The profile page ..... (need edit)
+Explanation: Log-in Page stays the same as the prototypes. We picked the homepage of prototype 1 as the homescreen which gives an overview of all the scheduled medicine for the day. The medicine page has the same information as the prototype does besides the fact that it's not editable. The profile page has a list of all days in the week and the corresponding medicines. However, the visual design in the paper prototypes is replaced with a list for now. 
 
 In general, we decided to make the app more light weight and reduce the learning curve by having less screens. Only the essential screens are kept. We also chose the navigation bar design in prototype 2 and added it to all the screens. 
