@@ -26,4 +26,6 @@ Our idea is largely similar to the one we proposed in Milestone 1, although we h
 ### Profile Page
 ![profilepage](UISkeleton/profilepage.JPG)
 
- a written explanation of how your screenshots are similar to or differ from your paper prototypes in milestone1.md
+Explanation: Log-in Page stays the same as the prototypes. We picked the homepage of prototype 1 as the homescreen which gives an overview of all the scheduled medicine for the day. The medicine page has the same information as the prototype does besides the fact that it's not editable. The profile page ..... (need edit)
+
+In general, we decided to make the app more light weight and reduce the learning curve by having less screens. Only the essential screens are kept. We also chose the navigation bar design in prototype 2 and added it to all the screens. 
