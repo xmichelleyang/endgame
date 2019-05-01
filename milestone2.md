@@ -12,18 +12,18 @@ Our idea is largely similar to the one we proposed in Milestone 1, although we h
 ### Screenshots
 
 ### Log-in Page
-![loginpage](UISkeleton/loginpage.jpg)
+![loginpage](UISkeleton/loginpage.JPG)
 
 ### Home Page
-![homepage](UISkeleton/homepage.jpg)
+![homepage](UISkeleton/homepage.JPG)
 
 ### Add Medicine Page
-![addpage](UISkeleton/addpage.jpg)
+![addpage](UISkeleton/addpage.JPG)
 
 ### Medicine Page
-![medicinepage](UISkeleton/medicinepage.jpg)
+![medicinepage](UISkeleton/medicinepage.JPG)
 
 ### Profile Page
-![profilepage](UISkeleton/profilepage.jpg)
+![profilepage](UISkeleton/profilepage.JPG)
 
  a written explanation of how your screenshots are similar to or differ from your paper prototypes in milestone1.md
