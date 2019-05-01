@@ -47,6 +47,7 @@ app.get('/medInfo', index.medInfo);
 app.get('/profile', index.profile);
 app.get('/day', index.day);
 app.get('/medAll', index.day);
+app.get('/data', index.data);
 
 
 http.createServer(app).listen(app.get('port'), function(){
