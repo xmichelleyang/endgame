@@ -14,6 +14,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+	<script>
+		$(function(){
+			$("#footer").load("partials/navbar.html")
+		});
+	</script>
 </head>
 
 <body>
@@ -34,16 +39,11 @@
 				<p class="card-text">Mondays at 3PM</p>
 			</div>
 		</div>
+
 	</div>
 
-	<nav class="navbar fixed-bottom navbar-light bg-light">
-		<div class="btn-group navCenter" role="group">
-			<button onclick="location.href='/addMed'" type="button" class="btn btn-secondary">+</button>
-			<!-- <button onclick="location.href='/profile'" type="button" class="btn btn-secondary">Overview</button> -->
-			<button onclick="location.href='/home'" type="button" class="btn btn-secondary">Today</button>
-			<button onclick="location.href='/profile'" type="button" class="btn btn-secondary">Profile</button>
-		</div>
-	</nav>
+	<div id="footer"></div>
 </body>
+
 
 </html>
