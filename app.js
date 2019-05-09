@@ -41,7 +41,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/signup', index.signUp);
 app.get('/home', index.home);
-app.get('/overview', index.viewOverview);
+app.get('/overview', index.overview);
 app.get('/addMed', index.addMed);
 app.get('/medInfo', index.medInfo);
 app.get('/profile', index.profile);
