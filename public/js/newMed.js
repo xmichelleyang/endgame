@@ -18,26 +18,26 @@ $(document).ready(() => {
 
 
   // Adding times
-  $("#add-sun").click(()) => {
-    alert("hehe that tickles);
+  $("#add-sun").click(() => {
+    alert("hehe that tickles");
   });
-  $("#add-mon").click(()) => {
-    alert("hehe that tickles);
+  $("#add-mon").click(() => {
+    alert("hehe that tickles");
   });
-  $("#add-tue").click(()) => {
-    alert("hehe that tickles);
+  $("#add-tue").click(() => {
+    alert("hehe that tickles");
   });
-  $("#add-wed").click(()) => {
-    alert("hehe that tickles);
+  $("#add-wed").click(() => {
+    alert("hehe that tickles");
   });
-  $("#add-thur").click(()) => {
-    alert("hehe that tickles);
+  $("#add-thur").click(() => {
+    alert("hehe that tickles");
   });
-  $("#add-fri").click(()) => {
-    alert("hehe that tickles);
+  $("#add-fri").click(() => {
+    alert("hehe that tickles");
   });
-  $("#add-sat").click(()) => {
-    alert("hehe that tickles);
+  $("#add-sat").click(() => {
+    alert("hehe that tickles");
   });
 
 
