@@ -50,3 +50,9 @@ img.card {
 .right-align{
   float: right;
 }
+
+
+.clickable{
+  font-weight: bold;
+  cursor: pointer ;
+}
