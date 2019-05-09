@@ -1,5 +1,4 @@
 <html>
-
 <head>
 	<title>Medilarm</title>
 	<!-- Our  CSS -->
@@ -13,33 +12,15 @@
 	<!-- Latest compiled Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
 
-
+	<script src="js/profile.js"></script>
 	<script>
 
-	$(document).ready (() => {
-		console.log("hello browser");
 
 
-		$.ajax({
-			url: 'data',
-			type: 'GET',
-			dataType: 'json',
-			success: (data) => {
-				console.log("Ajax successful", data );
-				$("#user-name").html("<p>" + data["name"] + "</p>");
-				$("#user-info").html("<p><strong>Medications: </strong><br>" + data["medications"] + "</p>");
-
-			}
-		});
-
-		//JSON.stringify(data, undefined, 2)
-
-	});
-
-
-
-	// $(document).ajaxError( () => }   $("#status").html("Error: unknown ajax error!");})
 
 	</script>
 
