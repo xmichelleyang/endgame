@@ -7,10 +7,6 @@ exports.view = function(req, res){
   res.render('index');
 };
 
-exports.viewOverview = function(req, res){
-  res.render('overview');
-};
-
 exports.signUp = function(req, res){
   res.render('signup');
 };
