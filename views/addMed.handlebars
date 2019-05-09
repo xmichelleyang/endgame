@@ -12,12 +12,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- Latest compiled Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
-
 	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-
+	<!-- JS file for this page -->
 	<script src="js/newMed.js"></script>
 
 		<!--
@@ -41,9 +39,42 @@
 	<div class="center-container">
 		<h1>Add New Medicine</h1>
 
-		<p>Name</p>
-		<input id="medNameBox" type="text" placeholder="" />
 
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Name of Medication</h5>
+			<div class="card-body">
+				<input class="card-text" id="medNameBox" />
+			</div>
+		</div>
+
+
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Time</h5>
+			<div class="card-body">
+				<div class="weekday-header"> <div class="left-align">Sunday</div>  <div class="right-align" id="add-sun">+ </div> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Monday</div>  <div class="right-align" id="add-mon">+ </div> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Tuesday</div>  <div class="right-align" id="add-tue">+ </div> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Wednesday</div>  <div class="right-align" id="add-wed">+ </div> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Thursday</div>  <div class="right-align" id="add-thur">+ </div> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Friday</div>  <div class="right-align" id="add-fri">+ </div> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Saturday</div>  <div class="right-align" id="add-sat">+ </div> </div> <br>
+
+				<hr>
+			</div>
+
+<!--
 		<p>Time</p>
 		<div class="btn-toolbar" role="group">
 			<button type="button" class="btn btn-secondary">MON</button>
@@ -53,17 +84,30 @@
 			<button type="button" class="btn btn-secondary">FRI</button>
 			<button type="button" class="btn btn-secondary">SAT</button>
 			<button type="button" class="btn btn-secondary">SUN</button>
+		</div> -->
+
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Description</h5>
+			<div class="card-body">
+				<input class="card-text big-text-box" id="medDescBox" />
+			</div>
 		</div>
 
-		<p>Description</p>
-		<input id="medDescBox" type="text" placeholder="" />
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Side Effects</h5>
+			<div class="card-body">
+				<input class="card-text big-text-box" id="medSideEffectsBox" />
+			</div>
+		</div>
 
-		<p>Side effects	</p>
-		<input  id="medSideEffectsBox" type="text" placeholder="" />
 
-		<p>Dosage	</p>
-		<input  id="medDosageBox" type="text" placeholder="" />
-		
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Dosage</h5>
+			<div class="card-body">
+				<input class="card-text" id="medDosageBox" />
+			</div>
+		</div>
+
 		<button type="button" id="addNewMed">Add</button>
 	</div>
 

@@ -38,3 +38,15 @@ img.card {
 	top: 0px;
 	left: 0px;
 }
+
+.big-text-box{
+  height: 50px;
+}
+
+.left-align{
+  float: left;
+}
+
+.right-align{
+  float: right;
+}
