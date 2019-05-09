@@ -13,6 +13,28 @@
 	<!-- Latest compiled Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+
+	<script src="js/newMed.js"></script>
+
+		<!--
+	<script>
+	 // Initialize Firebase
+	 const firebaseConfig = {
+		 apiKey: "AIzaSyBZoPGwhDizcW38gTI4JtWYbFnFXhucd1U",
+		 authDomain: "endgame-firebase.firebaseapp.com",
+		 databaseURL: "https://endgame-firebase.firebaseio.com",
+		 \projectId: "endgame-firebase",
+		 storageBucket: "endgame-firebase.appspot.com",
+		 messagingSenderId: "444915809261",
+		 appId: "1:444915809261:web:cfa16b01fd611cbd"
+	 };
+	 firebase.initializeApp(config);
+ </script> -->
+
 </head>
 
 <body>
@@ -20,7 +42,7 @@
 		<h1>Add New Medicine</h1>
 
 		<p>Name</p>
-		<input placeholder="Full Name" />
+		<input id="medNameBox" type="text" placeholder="" />
 
 		<p>Time</p>
 		<div class="btn-toolbar" role="group">
@@ -34,11 +56,15 @@
 		</div>
 
 		<p>Description</p>
-		<input placeholder="Description" />
+		<input id="medDescBox" type="text" placeholder="" />
 
 		<p>Side effects	</p>
-		<input placeholder="Side effects" />
-		<button  onclick="location.href='/home'" type="button">Add</button>
+		<input  id="medSideEffectsBox" type="text" placeholder="" />
+
+		<p>Dosage	</p>
+		<input  id="medDosageBox" type="text" placeholder="" />
+		
+		<button type="button" id="addNewMed">Add</button>
 	</div>
 
 
