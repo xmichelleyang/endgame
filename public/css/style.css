@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    padding-bottom: 100px;
 }
 
 h1 {
@@ -52,7 +53,53 @@ img.card {
 }
 
 
-.clickable{
+.clickable {
   font-weight: bold;
   cursor: pointer ;
+}
+
+.main-content {
+  width: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+#accountInfo {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+#profilePhoto{
+  width: auto;
+  height: 200px;
+}
+
+#circular-div {
+  overflow: hidden;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+ion-icon {
+  font-size: 70%;
+}
+
+.days {
+  padding: 10%;
+  width: 90%;
+  margin: auto;
+}
+
+.medicine-case{
+  background-color: pink;
+  width: 15%;
+  display: inline-block;
+  border-radius: 25%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.day-button{
+  background-color: white;
 }
