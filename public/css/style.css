@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    padding-bottom: 100px;
 }
 
 h1 {
@@ -82,4 +83,23 @@ img.card {
 
 ion-icon {
   font-size: 70%;
+}
+
+.days {
+  padding: 10%;
+  width: 90%;
+  margin: auto;
+}
+
+.medicine-case{
+  background-color: pink;
+  width: 15%;
+  display: inline-block;
+  border-radius: 25%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.day-button{
+  background-color: white;
 }
