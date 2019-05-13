@@ -55,6 +55,8 @@ $(document).ready(() => {
         for(med in allMeds) {
           if (med.toLowerCase() == name.toLowerCase()){
             $("#medDescBox").val(allMeds[med].Description);
+            alert("Successfully added the description!");
+            break;
           }
         }
 
