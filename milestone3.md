@@ -1,7 +1,7 @@
 # Team Name: Endgame
 ### Team Members: Daniel Gwag, David Liau, Yun Tang (Denise), Michelle Yang
 
-# Project Milestone 2
+# Project Milestone 3
 
 Backend to Data Source
 
