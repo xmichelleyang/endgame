@@ -86,6 +86,9 @@ $(document).ready(() => {
   		dosage: dosage
   	});
 
+    alert("Added Successfully");
+
+    window.location="/home";
 
 
   });
