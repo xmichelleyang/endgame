@@ -1,25 +1,28 @@
 <html>
+
 <head>
 	{{>header}}
+	<script src="js/signup.js"></script>
 </head>
 
 <body>
-	<h1>New Account</h1>
-
-	<div class="login">
-		<div class="form-group">
-			<label>Name</label>
-			<input class="form-control" placeholder="Full Name">
+	<div class="center-container">
+		<h1>New Account</h1>
+		<div class="login">
+			<div class="form-group">
+				<label>Name</label>
+				<input id="userName" class="form-control" placeholder="Full Name">
+			</div>
+			<div class="form-group">
+				<label>Password</label>
+				<input id="userPW" class="form-control" placeholder="Password">
+			</div>
+			<div class="form-group">
+				<label>Phone Number</label>
+				<input id="userPhone" class="form-control" placeholder="123-456-7890">
+			</div>
+			<button id="signUp" onclick="location.href='/home'" type="submit" class="btn btn-primary">Create</button>
 		</div>
-		<div class="form-group">
-			<label>Password</label>
-			<input class="form-control" placeholder="Password">
-		</div>
-		<div class="form-group">
-			<label>Phone Number</label>
-			<input class="form-control" placeholder="123-456-7890">
-		</div>
-		<button onclick="location.href='/home'" type="submit" class="btn btn-primary">Create</button>
 	</div>
 
 
