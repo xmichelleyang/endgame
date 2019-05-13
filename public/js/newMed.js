@@ -40,7 +40,31 @@ $(document).ready(() => {
     alert("hehe that tickles");
   });
 
+  // David - Autofilling Description from database
+  $("#autofillMed").click( () => {
+    const name = $("#medNameBox").val();
 
+    // Medicine name not input
+    if(name == ""){
+      alert("Please input a medicine first!");
+    }
+    else {
+      database.ref("med_info/").on("value", (s) => {
+        const allMeds = s.val();
+
+        for(med in allMeds) {
+          if (med.toLowerCase() == name.toLowerCase()){
+            $("#medDescBox").val(allMeds[med].Description);
+          }
+        }
+
+        if($("#medDescBox").val() == ""){
+          alert("Sorry, we don't have the information for this medicine.");
+        }
+      });
+    }
+
+  })
 
   // Adding
   console.log("hello");

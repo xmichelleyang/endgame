@@ -24,7 +24,6 @@ $(document).ready (() => {
 			if(allMedications) {
 				$("#user-info").html("");
 				Object.keys(allMedications).forEach((med) => {
-
           $("#user-info").append(`
           		<div class="card bg-light mb-3">
           			<h5 class="card-header"> ${med} </h5>
