@@ -1,18 +1,54 @@
 <html>
 
 <head>
-	<link rel="import" href="header.html">
-	<script src="js/newMed.js"></script>
 
+	{{>header}}
+
+	<script src="js/newMed.js"></script>
 </head>
 
 <body>
 	<div class="center-container">
 		<h1>Add New Medicine</h1>
 
-		<p>Name</p>
-		<input id="medNameBox" type="text" placeholder="" />
 
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Name of Medication</h5>
+			<div class="card-body">
+				<input class="card-text" id="medNameBox" />
+			</div>
+		</div>
+
+
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Time</h5>
+			<div class="card-body">
+				<div class="weekday-header"> <div class="left-align">Sunday</div>  <a class="right-align clickable" id="add-sun">+ </a> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Monday</div>  <a class="right-align clickable" id="add-mon">+ </a> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Tuesday</div>  <a class="right-align clickable" id="add-tue">+ </a> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Wednesday</div>  <a class="right-align clickable" id="add-wed">+ </a> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Thursday</div>  <a class="right-align clickable" id="add-thur">+ </a> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Friday</div>  <a class="right-align clickable" id="add-fri">+ </a> </div> <br>
+
+				<hr>
+				<div class="weekday-header"> <div class="left-align">Saturday</div>  <a class="right-align clickable" id="add-sat">+ </a> </div> <br>
+
+				<hr>
+			</div>
+		</div>
+
+
+<!--
 		<p>Time</p>
 		<div class="btn-toolbar" role="group">
 			<button type="button" class="btn btn-secondary">MON</button>
@@ -22,29 +58,41 @@
 			<button type="button" class="btn btn-secondary">FRI</button>
 			<button type="button" class="btn btn-secondary">SAT</button>
 			<button type="button" class="btn btn-secondary">SUN</button>
+		</div> -->
+
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Description</h5>
+			<div class="card-body">
+				<input class="card-text big-text-box" id="medDescBox" />
+				<hr />
+				<!-- <label><input type="checkbox" />
+					Auto import description?
+				</label> -->
+				<button type="button" id="autofillMed">Auto-import Description</button>
+			</div>
 		</div>
 
-		<p>Description</p>
-		<input id="medDescBox" type="text" placeholder="" />
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Side Effects</h5>
+			<div class="card-body">
+				<input class="card-text big-text-box" id="medSideEffectsBox" />
+			</div>
+		</div>
 
-		<p>Side effects	</p>
-		<input  id="medSideEffectsBox" type="text" placeholder="" />
 
-		<p>Dosage	</p>
-		<input  id="medDosageBox" type="text" placeholder="" />
+		<div class="card bg-light mb-3">
+			<h5 class="card-header">Dosage</h5>
+			<div class="card-body">
+				<input class="card-text" id="medDosageBox" />
+			</div>
+		</div>
+
 
 		<button type="button" id="addNewMed">Add</button>
 	</div>
 
 
-	<nav class="navbar fixed-bottom navbar-light bg-light">
-		<div class="btn-group navCenter" role="group">
-			<button onclick="location.href='/addMed'" type="button" class="btn btn-secondary">+</button>
-			<!-- <button onclick="location.href='/profile'" type="button" class="btn btn-secondary">Overview</button> -->
-			<button onclick="location.href='/home'" type="button" class="btn btn-secondary">Today</button>
-			<button onclick="location.href='/profile'" type="button" class="btn btn-secondary">Profile</button>
-		</div>
-	</nav>
+	<div id="footer"></div>
 </body>
 
 </html>

@@ -17,6 +17,57 @@ $(document).ready(() => {
   const database = firebase.database();
 
 
+  // Adding times
+  $("#add-sun").click(() => {
+    alert("hehe that tickles");
+  });
+  $("#add-mon").click(() => {
+    alert("hehe that tickles");
+  });
+  $("#add-tue").click(() => {
+    alert("hehe that tickles");
+  });
+  $("#add-wed").click(() => {
+    alert("hehe that tickles");
+  });
+  $("#add-thur").click(() => {
+    alert("hehe that tickles");
+  });
+  $("#add-fri").click(() => {
+    alert("hehe that tickles");
+  });
+  $("#add-sat").click(() => {
+    alert("hehe that tickles");
+  });
+
+  // David - Autofilling Description from database
+  $("#autofillMed").click( () => {
+    const name = $("#medNameBox").val();
+
+    // Medicine name not input
+    if(name == ""){
+      alert("Please input a medicine first!");
+    }
+    else {
+      database.ref("med_info/").on("value", (s) => {
+        const allMeds = s.val();
+
+        for(med in allMeds) {
+          if (med.toLowerCase() == name.toLowerCase()){
+            $("#medDescBox").val(allMeds[med].Description);
+            alert("Successfully added the description!");
+            break;
+          }
+        }
+
+        if($("#medDescBox").val() == ""){
+          alert("Sorry, we don't have the information for this medicine.");
+        }
+      });
+    }
+
+  })
+
   // Adding
   console.log("hello");
   $("#addNewMed").click(() => {
@@ -32,8 +83,13 @@ $(document).ready(() => {
   		name: name,
       desc: desc,
       side_effects: side_effects,
-  		dosage: 5
+  		dosage: dosage
   	});
+
+    alert("Added Successfully");
+
+    window.location="/home";
+
 
   });
 

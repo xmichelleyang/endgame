@@ -1,15 +1,67 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="import" href="header.html">
+	{{>header}}
+	<script src="js/overview.js"></script>
 </head>
 
 
-	 <body>
+<body>
 
-			 <div class="center-container" id="main-content">
-				 <h1 class="header"> Overview </h1>
+	<div class="center-container" id="main-content">
+		<h1 class="header"> Overview </h1>
+		<div class="btn-group-vertical medicine-case">
+			<div class="days">
+				<button type="button" class="btn day-button">MON</button>
+			</div>
+			<div class="days">
+				<button type="button" class="btn day-button">TUE</button>
+			</div>
+			<div class="days">
+				<button type="button" class="btn day-button">WED</button>
+			</div>
+			<div class="days">
+				<button type="button" class="btn day-button">THU</button>
+			</div>
+			<div class="days">
+				<button type="button" class="btn day-button">FRI</button>
+			</div>
+			<div class="days">
+				<button type="button" class="btn day-button">SAT</button>
+			</div>
+			<div class="days">
+				<button type="button" class="btn day-button">SUN</button>
+			</div>
+		</div>
+	</div>
 
-			 </div>
-	 </body>
+
+	<div class="main-content">
+		<div>
+			<hr>
+			<!-- Populate medicine -->
+			<h3> Overview </h3>
+			<h4 class="card-header"> Monday </h4>
+			<pre id="med-mon"> </pre>
+			<h4 class="card-header"> Tuesday </h4>
+			<pre id="med-tue"> </pre>
+			<h4 class="card-header"> Wednesday </h4>
+			<pre id="med-wed"> </pre>
+			<h4 class="card-header"> Thursday </h4>
+			<pre id="med-thu"> </pre>
+			<h4 class="card-header"> Friday </h4>
+			<pre id="med-fri"> </pre>
+			<h4 class="card-header"> Saturday </h4>
+			<pre id="med-sat"> </pre>
+			<h4 class="card-header"> Sunday </h4>
+			<pre id="med-sun"> </pre>
+
+			<!-- <pre id="user-med-schedule"> -->
+		</div>
+	</div>
+
+
+	<div id="footer"></div>
+</body>
+
 </html>

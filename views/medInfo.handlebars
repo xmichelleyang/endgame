@@ -1,34 +1,34 @@
 <html>
 <head>
-	<link rel="import" href="header.html">
+	{{>header}}
 </head>
 
 <body>
 	<div class="center-container">
 		<h1>Advil</h1>
-		<p>Overview</p>
-		<div>
-			<p>Monday at 3pm</p>
-			<p>Friday at 3pm</p>
+
+		<div class="card bg-light mb-3">
+			<h3 class="card-header">Overview</h3>
+			<h5 class="card-header">Consumption Times</h5>
+			<div class="card-body">
+				<div class="weekday-header"> <div class="left-align">Monday at 3pm</div> </div> <br>
+				<div class="weekday-header"> <div class="left-align">Friday at 3pm</div> </div> <br>
+			</div>
+
+			<h5 class="card-header">Description</h5>
+			<div class="card-body">
+				<p class="card-text">Pain Reliever that tasts like candy!</p>
+			</div>
+
+			<h5 class="card-header">Side Effects</h5>
+			<div class="card-body">
+				<p class="card-text">Death</p>
+			</div>
 		</div>
 
-		<div>
-			<p>Pain Reliever that tasts like candy!</p>
-		</div>
-
-		<div>
-			<p>Side effects</p>
-		</div>
 	</div>
 
-	<nav class="navbar fixed-bottom navbar-light bg-light">
-		<div class="btn-group navCenter" role="group">
-			<button onclick="location.href='/addMed'" type="button" class="btn btn-secondary">+</button>
-			<!-- <button onclick="location.href='/profile'" type="button" class="btn btn-secondary">Overview</button> -->
-			<button onclick="location.href='/home'" type="button" class="btn btn-secondary">Today</button>
-			<button onclick="location.href='/profile'" type="button" class="btn btn-secondary">Profile</button>
-		</div>
-	</nav>
+	<div id="footer"></div>
 </body>
 
 </html>

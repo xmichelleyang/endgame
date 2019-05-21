@@ -2,6 +2,7 @@ body {
 	text-align: center;
 	margin: 0;
 	background-color: lightblue;
+  padding-bottom: 100px;
 }
 
 h1 {
@@ -14,13 +15,14 @@ label {
 
 /* index page CSS */
 .login {
-		width: 300px;
+	 width: 30%;
 		margin: auto;
+    text-align: center;
 }
 
 .signup {
-		margin-top: 30px;
-		padding: 30px;
+		margin-top: 5%;
+    text-align: center;
 }
 
 img.card {
@@ -39,4 +41,68 @@ img.card {
 	align-items: center;
 	top: 0px;
 	left: 0px;
+}
+
+.big-text-box{
+  height: 50px;
+}
+
+.left-align{
+  float: left;
+}
+
+.right-align{
+  float: right;
+}
+
+
+.clickable {
+  font-weight: bold;
+  cursor: pointer ;
+}
+
+.main-content {
+  width: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+#accountInfo {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+#profilePhoto{
+  width: auto;
+  height: 200px;
+}
+
+#circular-div {
+  overflow: hidden;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+ion-icon {
+  font-size: 70%;
+}
+
+.days {
+  padding: 10%;
+  width: 90%;
+  margin: auto;
+}
+
+.medicine-case{
+  background-color: pink;
+  width: 15%;
+  display: inline-block;
+  border-radius: 25%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.day-button{
+  background-color: white;
 }
