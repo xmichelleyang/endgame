@@ -20,8 +20,7 @@ $(document).ready(() => {
   const medName = $("#medName").text();
   console.log(medName);
 
-
-
+  // Loading the data into the cards
 	database.ref("user_meds/" + medName).once("value", (snapshot) => {
 		const data = snapshot.val();
     console.log(data);
@@ -35,10 +34,12 @@ $(document).ready(() => {
       console.log("No dates found!");
     }
     else {
-      $("#medDates").html(`<h5 class="card-header">Consumption Times</h5>
-            <div class="card-body">
-              <p class="card-text"> <ul> <div id="loadedDates"> </div> </ul> </p>
-            </div>`);
+      $("#medDates").html(`
+        <h5 class="card-header">Consumption Times</h5>
+        <div class="card-body">
+          <p class="card-text"> <ul> <div id="loadedDates"> </div> </ul> </p>
+        </div>
+      `);
 
       Object.keys(dates).forEach((name)=> {
 			     $("#loadedDates").append("<li>" + name + "</li>");
@@ -52,11 +53,12 @@ $(document).ready(() => {
       console.log("No dosage found!");
     }
     else {
-      $("#medDosage").html(`<h5 class="card-header">Dosage</h5>
-            <div class="card-body">
-              <p class="card-text"> ${dosage} </p>
-            </div>`);
-
+      $("#medDosage").html(`
+        <h5 class="card-header">Dosage</h5>
+        <div class="card-body">
+          <p class="card-text"> ${dosage} </p>
+        </div>
+      `);
     }
 
     // Description
@@ -65,11 +67,13 @@ $(document).ready(() => {
       console.log("No description found!");
     }
     else {
-      $("#medDesc").html(`<h5 class="card-header">Description</h5>
-            <div class="card-body">
-              <p class="card-text">${description}!</p>
-            </div>`);
-          }
+      $("#medDesc").html(`
+        <h5 class="card-header">Description</h5>
+        <div class="card-body">
+          <p class="card-text">${description}!</p>
+        </div>
+      `);
+    }
 
     // Side Effects
     side_effects = data.side_effects;
@@ -77,11 +81,13 @@ $(document).ready(() => {
       console.log("No side effects found!");
 		}
     else {
-			$("#medSideEffects").html(`<h5 class="card-header">Side Effects</h5>
-      			<div class="card-body">
-      				<p class="card-text">${side_effects}!</p>
-      			</div>`);
-	}
+			$("#medSideEffects").html(`
+        <h5 class="card-header">Side Effects</h5>
+  			<div class="card-body">
+  				<p class="card-text">${side_effects}!</p>
+  			</div>
+      `);
+	  }
 
   });
 

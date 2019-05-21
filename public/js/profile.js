@@ -37,13 +37,14 @@ $(document).ready (() => {
 				$("#user-info").html("");
 				Object.keys(allMedications).forEach((med) => {
           $("#user-info").append(`
-          		<div class="card bg-light mb-3">
-          			<h5 class="card-header"> ${med} </h5>
-          			<div class="card-body">
+        		<div class="card bg-light mb-3">
+        			<h5 class="card-header"> ${med} </h5>
+        			<div class="card-body">
                 Dosage: ${med.dosage} <br>
                 Side Effects: ${med.side_effects} <br>
-          			</div>
-          		</div>`);
+        			</div>
+        		</div>
+          `);
 				})
 			}
 		});

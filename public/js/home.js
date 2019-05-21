@@ -50,13 +50,14 @@ $(document).ready(() => {
                 const medTime = snapshot.val();
                 // console.log(med + medTime.time);
                 $("#med-today").append(`
-                  		<div class="card bg-light mb-3" onclick="location.href='/medInfo/${med}'">
-                  			<h5 class="card-header"> ${med} </h5>
-                  			<div class="card-body">
-                        Dosage: ${dosage} </br>
-                        Side Effects: ${side_effects}
-                  			</div>
-                  		</div>`);
+              		<div class="card bg-light mb-3" onclick="location.href='/medInfo/${med}'">
+              			<h5 class="card-header"> ${med} </h5>
+              			<div class="card-body">
+                    Dosage: ${dosage} </br>
+                    Side Effects: ${side_effects}
+              			</div>
+              		</div>
+                `);
               })
             }
 
