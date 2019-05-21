@@ -16,6 +16,18 @@ $(document).ready (() => {
     // Define it as database
     const database = firebase.database();
 
+
+    // Load in user data
+    database.ref("user_info/").on("value", (snapshot) => {
+      const userInfo = snapshot.val();
+      $("#userName").html(userInfo.name);
+      $("#phone").html(userInfo.phone);
+      $("#email").html(userInfo.email);
+      // $(#"profilePhoto").src();
+    });
+
+
+    // Load in medicines
 		database.ref("user_meds/").on("value", (snapshot) => {
 			const allMedications = snapshot.val();
 			console.log("All medications so far", allMedications);
