@@ -12,19 +12,19 @@ Our idea is largely similar to the one we proposed in Milestone 1, although we h
 ### Screenshots
 
 ### Log-in Page
-![loginpage](UISkeleton/loginpage.JPG)
+![loginpage](UISkeleton/Milestone2/loginpage.JPG)
 
 ### Home Page
-![homepage](UISkeleton/homepage.JPG)
+![homepage](UISkeleton/Milestone2/homepage.JPG)
 
 ### Add Medicine Page
-![addpage](UISkeleton/addpage.JPG)
+![addpage](UISkeleton/Milestone2/addpage.JPG)
 
 ### Medicine Page
-![medicinepage](UISkeleton/medicinepage.JPG)
+![medicinepage](UISkeleton/Milestone2/medicinepage.JPG)
 
 ### Profile Page
-![profilepage](UISkeleton/profilepage.JPG)
+![profilepage](UISkeleton/Milestone2/profilepage.JPG)
 
 Explanation: Log-in Page stays the same as the prototypes. We picked the homepage of prototype 1 as the homescreen which gives an overview of all the scheduled medicine for the day. The medicine page has the same information as the prototype does besides the fact that it's not editable. The profile page contains the user's name, phone number and corresponding medicines. However, the visual design in the paper prototypes is replaced with a list for now. 
 
