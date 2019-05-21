@@ -170,8 +170,7 @@ $(document).ready(() => {
 
   // David - Pressing Pill Button
   $(".day-button").click(function() {
-    window.location = "/home";
-    console.log(this.id);
+    window.location = "/home/" + this.id;
   });
 
 });
