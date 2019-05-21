@@ -29,22 +29,35 @@ $(document).ready (() => {
 
     // Load in medicines
 		database.ref("user_meds/").on("value", (snapshot) => {
+
+      // Get a list of all the medicines
 			const allMedications = snapshot.val();
 			console.log("All medications so far", allMedications);
 
 			// If there are users that exist
 			if(allMedications) {
+        // Reset HTML to be blank
 				$("#user-info").html("");
 				Object.keys(allMedications).forEach((med) => {
-          $("#user-info").append(`
-        		<div class="card bg-light mb-3">
-        			<h5 class="card-header"> ${med} </h5>
-        			<div class="card-body">
-                Dosage: ${med.dosage} <br>
-                Side Effects: ${med.side_effects} <br>
-        			</div>
-        		</div>
-          `);
+          console.log(med);
+
+          database.ref("user_meds/" + med).on("value", (snapshot) => {
+            var medInfos = snapshot.val();
+            console.log( "medications", medInfos);
+            var dosage = medInfos.dosage;
+            var side_effects = medInfos.side_effects;
+            var url =  "'/medInfo/" + med +"'";
+            $("#user-info").append(`
+          		<div class="card mb-3"  onclick="location.href=${url}">
+          			<h5 class="card-header"> ${med} </h5>
+          			<div class="card-body">
+                  Dosage: ${dosage} <br>
+                  Side Effects: ${side_effects} <br>
+          			</div>
+          		</div>
+            `);
+          });
+
 				})
 			}
 		});
