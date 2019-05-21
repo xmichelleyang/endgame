@@ -48,18 +48,41 @@ $(document).ready (() => {
 		});
 
 
-		//
-		// $.ajax({
-		// 	url: 'data',
-		// 	type: 'GET',
-		// 	dataType: 'json',
-		// 	success: (data) => {
-		// 		console.log("Ajax successful", data );
-		// 		$("#user-name").html("<p>" + data["name"] + "</p>");
-		// 		$("#user-info").html("<p><strong>Medications: </strong><br>" + data["medications"] + "</p>");
-		//
-		// 	}
-		// });
+    // Update user's information
+    $("#userNameClick").click(() => {
+      var change = prompt('What would you like to change your name to?');
+    	// If user presses cancel
+    	if (change == null) {
+        	return
+        }
+      database.ref('user_info').update({
+        name: change
+      });
+    });
 
+
+    $("#phoneClick").click(() => {
+      var change = prompt('What would you like to change your phone number to?');
+    	// If user presses cancel
+    	if (change == null) {
+        	return
+      }
+      database.ref('user_info').update({
+        phone: change
+      });
+    });
+
+    $("#emailClick").click(() => {
+
+      var change = prompt('What would you like to change your email to?');
+      // If user presses cancel
+      if (change == null) {
+          return
+      }
+      database.ref('user_info').update({
+        email: change
+      });
+
+    });
 
 	});
