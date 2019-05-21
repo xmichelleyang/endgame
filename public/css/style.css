@@ -13,7 +13,7 @@ body {
 }
 
 .weekday-header{
-	padding: 5%;
+	/* padding: 5%; */
 }
 
 .btn btn-primary {
@@ -107,7 +107,7 @@ img.card {
   padding-left: 20%;
   padding-right: 20%;
 }
-#addTime {
+#addTo {
 	margin-bottom: 10%;
 }
 

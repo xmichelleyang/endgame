@@ -3,7 +3,6 @@
 <head>
 
 	{{>header}}
-	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
 	<script src="js/newMed.js"></script>
 	<!-- <script src="handlebars-v4.1.2.js"></script> -->
 </head>
@@ -11,13 +10,34 @@
 <body>
 	<div class="center-container">
 		<h1>Add New Medicine</h1>
-
-
-		<form>
+		<!-- <form> -->
 			<div class="card bg-light mb-3">
 				<h5 class="card-header">Name of Medication</h5>
 				<div class="card-body">
 					<input class="card-text form-control" id="medNameBox" placeholder="Medication Name" required>
+				</div>
+			</div>
+
+			<div class="card bg-light mb-3">
+				<h5 class="card-header">Description</h5>
+				<div class="card-body">
+					<input class="card-text big-text-box" id="medDescBox" />
+					<hr />
+					<button type="button" id="autofillMed">Auto-import Description</button>
+				</div>
+			</div>
+
+			<div class="card bg-light mb-3">
+				<h5 class="card-header">Side Effects</h5>
+				<div class="card-body">
+					<input class="card-text big-text-box" id="medSideEffectsBox" />
+				</div>
+			</div>
+
+			<div class="card bg-light mb-3">
+				<h5 class="card-header">Dosage</h5>
+				<div class="card-body">
+					<input class="card-text" id="medDosageBox" required />
 				</div>
 			</div>
 
@@ -27,35 +47,32 @@
 				<div class="card-body">
 					<div class="weekday-header">
 						<h6>Monday</h6>
-						<input type="time" id="medTimeMon" value="12:00" style="margin-left: 5%;">
-						<button onclick="addToMon()" style="margin-bottom: 10%;" formnovalidate>ADD</button>
+						<input type="time" id="medTimeMon" value="12:00" >
+						<button id="addToMon" style="margin-bottom: 10%;">ADD</button>
 
 						<h6>Tuesday</h6>
-						<input type="time" id="medTimeTue" value="12:00" style="margin-left: 5%;">
-						<button onclick="addToTue()" style="margin-bottom: 10%;" formnovalidate>ADD</button>
+						<input type="time" id="medTimeTue" value="12:00" >
+						<button id="addToTue" style="margin-bottom: 10%;">ADD</button>
 
 						<h6>Wednesday</h6>
-						<input type="time" id="medTimeWed" value="12:00" style="margin-left: 5%;">
-						<button onclick="addToWed()" style="margin-bottom: 10%;" formnovalidate>ADD</button>
+						<input type="time" id="medTimeWed" value="12:00" >
+						<button id="addToWed" style="margin-bottom: 10%;">ADD</button>
 
 						<h6>Thursday</h6>
-						<input type="time" id="medTimeThu" value="12:00" style="margin-left: 5%;">
-						<button onclick="addToThu()" style="margin-bottom: 10%;" formnovalidate>ADD</button>
+						<input type="time" id="medTimeThu" value="12:00" >
+						<button id="addToThu" style="margin-bottom: 10%;">ADD</button>
 
 						<h6>Friday</h6>
-						<input type="time" id="medTimeFri" value="12:00" style="margin-left: 5%;">
-						<button onclick="addToFri()" style="margin-bottom: 10%;" formnovalidate>ADD</button>
+						<input type="time" id="medTimeFri" value="12:00" >
+						<button id="addToFri" style="margin-bottom: 10%;">ADD</button>
 
 						<h6>Saturday</h6>
-						<input type="time" id="medTimeSat" value="12:00" style="margin-left: 5%;">
-						<button onclick="addToSat()" style="margin-bottom: 10%;" formnovalidate>ADD</button>
+						<input type="time" id="medTimeSat" value="12:00" >
+						<button id="addToSat" style="margin-bottom: 10%;">ADD</button>
 
 						<h6>Sunday</h6>
-						<input type="time" id="medTimeSun" value="12:00" style="margin-left: 5%;">
-						<button onclick="addToSun()" formnovalidate>ADD</button>
-
-
-
+						<input type="time" id="medTimeSun" value="12:00" >
+						<button id="addToSun">ADD</button>
 						<!-- <button class="right-align clickable" data-toggle="collapse" href="#collapseMon" role="button" aria-expanded="false">ADD</button> -->
 					</div> <br>
 					<!-- <div class="collapse" id="collapseMon">
@@ -66,113 +83,9 @@
 				</div>
 			</div>
 
-			<div class="card bg-light mb-3">
-				<h5 class="card-header">Description</h5>
-				<div class="card-body">
-					<input class="card-text big-text-box" id="medDescBox" />
-					<hr />
-					<button type="button" id="autofillMed">Auto-import Description</button>
-				</div>
-			</div>
-
-			<div class="card bg-light mb-3">
-				<h5 class="card-header">Side Effects</h5>
-				<div class="card-body">
-					<input class="card-text big-text-box" id="medSideEffectsBox" />
-				</div>
-			</div>
-
-			<div class="card bg-light mb-3">
-				<h5 class="card-header">Dosage</h5>
-				<div class="card-body">
-					<input class="card-text" id="medDosageBox" required/>
-				</div>
-			</div>
-			<button id="addNewMed" type="submit">ADD</button>
-
-
-		</form>
+			<!-- <button id="addNewMed" type="submit">ADD</button> -->
+		<!-- </form> -->
 	</div>
-
-
-
-<!--
-	<div class="center-container">
-		<h1>Add New Medicine</h1>
-		<form>
-			<div class="card bg-light mb-3">
-				<h5 class="card-header">Name of Medication</h5>
-				<div class="card-body">
-					<input class="card-text form-control is-invalid" id="medNameBox" placeholder="Medication Name" required>
-					<div class="invalid-feedback">
-						Please provide a valid medication name.
-					</div>
-				</div>
-			</div>
-
-			<div class="card bg-light mb-3" style="width: 20%;">
-				<h5 class="card-header">Time</h5>
-				<script id="handlebars-demo" type="text/x-handlebars-template">
-				<div class="card-body">
-					<div class="weekday-header">
-						<div id="addMedDay" class="left-align" style="padding-left: 5%;">Monday</div>
-						<a class="right-align clickable" data-toggle="collapse" href="#collapseMon" role="button" aria-expanded="false">+</a>
-					</div> <br>
-					<div class="collapse" id="collapseMon">
-						<div class="input-group">
-							<input type="time" id="medTime" value="12:00" style="margin: auto;">
-						</div>
-					</div> -->
-					<!--
-				<div class="weekday-header">
-					<div id="addMedDay" class="left-align" style="padding-left: 5%;">Tuesday</div>
-					<a class="right-align clickable" data-toggle="collapse" href="#collapseTue" role="button" aria-expanded="false">+</a>
-				</div> <br>
-				<div class="collapse" id="collapseTue">
-					<div class="input-group">
-						<input type="time" id="medTime" value="12:00" style="margin: auto;">
-					</div>
-				</div>
-
-				<div class="weekday-header">
-					<div id="addMedDay" class="left-align" style="padding-left: 5%;">Wednesday</div>
-					<a class="right-align clickable" data-toggle="collapse" href="#collapseWed" role="button" aria-expanded="false">+</a>
-				</div> <br>
-				<div class="collapse" id="collapseWed">
-					<div class="input-group">
-						<input type="time" id="medTime" value="12:00" style="margin: auto;">
-					</div>
-				</div> -->
-				<!-- </div>
-			</div>
-
-			<div class="card bg-light mb-3">
-				<h5 class="card-header">Description</h5>
-				<div class="card-body">
-					<input class="card-text big-text-box" id="medDescBox" />
-					<hr />
-					<button type="button" id="autofillMed">Auto-import Description</button>
-				</div>
-			</div>
-
-			<div class="card bg-light mb-3">
-				<h5 class="card-header">Side Effects</h5>
-				<div class="card-body">
-					<input class="card-text big-text-box" id="medSideEffectsBox" />
-				</div>
-			</div>
-
-			<div class="card bg-light mb-3">
-				<h5 class="card-header">Dosage</h5>
-				<div class="card-body">
-					<input class="card-text" id="medDosageBox" />
-				</div>
-			</div>
-
-			<button type="button" id="addNewMed">Add</button>
-		</form>
-	</div> -->
-
 
 	{{>footer}}
 </body>
