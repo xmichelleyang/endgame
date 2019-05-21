@@ -12,7 +12,19 @@ exports.signUp = function(req, res){
 };
 
 exports.home = function(req, res){
-  res.render('home');
+  const day = req.params.day;
+  console.log(day);
+
+  // If the day request is valid
+  if(!day || typeof(day) == "undefined") {
+    res.render('home');
+  }
+  else {
+    // Create data object for webpage to read in
+    const info = { day: day };
+    // Render home with correct day
+    res.render('home', info);
+  }
 };
 
 exports.addMed = function(req, res){

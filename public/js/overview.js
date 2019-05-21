@@ -8,7 +8,6 @@ var cal = {
   "Sun": [],
 };
 
-
 $(document).ready(() => {
 
   // Your web app's Firebase configuration
@@ -140,7 +139,7 @@ $(document).ready(() => {
   document.addEventListener('DOMContentLoaded', function() {
     $("#med-today").append("aa");
    // your code here
-}, false);
+  }, false);
 
   // $("#med-today").append(cal['Sun']);
   console.log(cal);
@@ -169,5 +168,9 @@ $(document).ready(() => {
   // 	}
   // });
 
+  // David - Pressing Pill Button
+  $(".day-button").click(function() {
+    window.location = "/home/" + this.id;
+  });
 
 });

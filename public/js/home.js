@@ -22,8 +22,12 @@ $(document).ready(() => {
   }
 
   var d = new Date();
-  var day = d.getWeekDay();
+  var day = $("#day").text();
+  if(!day || day == "") {
+    day = d.getWeekDay();
+  }
   $("#today-date").append(day);
+
 
   database.ref("user_meds/").on("value", (snapshot) => {
     const allMedications = snapshot.val();
