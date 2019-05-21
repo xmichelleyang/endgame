@@ -19,8 +19,29 @@ exports.addMed = function(req, res){
   res.render('addMed');
 };
 
+exports.error = function(req, res){
+  res.render('404');
+}
+
 exports.medInfo = function(req, res){
-  res.render('medInfo');
+  const meds = req.params.med;
+  console.log("The medicine requested is: " + meds);
+
+  // If the med request is valid
+  if(!meds || typeof(meds) == "undefined") {
+    console.log("No medicine found");
+    return res.redirect('404');
+  }
+  else {
+
+    // Create data object for webpage to read in
+    const info = {
+      med: meds
+    };
+    // Render medInfo with correct information
+    res.render('medInfo', info);
+  }
+
 };
 
 exports.overview = function(req, res){
@@ -35,9 +56,6 @@ exports.day = function(req, res){
   res.render('day');
 };
 
-exports.medAll = function(req, res){
-  res.render('medAll');
-};
 
 const fakeDatabase = {
   name: "Iron Man",
