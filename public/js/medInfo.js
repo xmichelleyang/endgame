@@ -20,12 +20,15 @@ $(document).ready(() => {
   const medName = $("#medName").text();
   console.log(medName);
 
-  
+
 
 	database.ref("user_meds/" + medName).once("value", (snapshot) => {
 		const data = snapshot.val();
     console.log(data);
 
+    if(data == null) {
+      window.location = "/404";
+    }
     // Consumption times
     dates = data.dates;
     if(!dates) {
