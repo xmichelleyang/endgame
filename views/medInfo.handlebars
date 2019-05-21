@@ -1,34 +1,43 @@
 <html>
 <head>
 	{{>header}}
+
+	<script src="/js/medInfo.js"></script>
+
 </head>
 
 <body>
 	<div class="center-container">
-		<h1>Advil</h1>
+		<h1 id="medName">{{med}}</h1>
 
-		<div class="card bg-light mb-3">
-			<h3 class="card-header">Overview</h3>
-			<h5 class="card-header">Consumption Times</h5>
+			<div id="medDates"> </div>
+			<div id="medDosage"> </div>
+			<div id="medDesc"> </div>
+			<div id="medSideEffects"> </div>
+
+
+
+			<!-- <h5 class="card-header">Consumption Times</h5>
 			<div class="card-body">
 				<div class="weekday-header"> <div class="left-align">Monday at 3pm</div> </div> <br>
-				<div class="weekday-header"> <div class="left-align">Friday at 3pm</div> </div> <br>
-			</div>
+			</div> -->
 
-			<h5 class="card-header">Description</h5>
+			<!-- <h5 class="card-header">Description</h5>
 			<div class="card-body">
 				<p class="card-text">Pain Reliever that tasts like candy!</p>
-			</div>
+			</div> -->
 
-			<h5 class="card-header">Side Effects</h5>
+
+			<!-- <h5 class="card-header">Side Effects</h5>
 			<div class="card-body">
 				<p class="card-text">Death</p>
-			</div>
-		</div>
+			</div> -->
 
 	</div>
 
-	<div id="footer"></div>
+	<!-- <div id="footer"></div> -->
+
+
 </body>
 
 </html>
