@@ -22,9 +22,13 @@ $(document).ready(() => {
   }
 
   var d = new Date();
-  var day = d.getWeekDay();
+  var day = $("#day").text();
+  if(!day || day == "") {
+    day = d.getWeekDay();
+  }
   $("#today-date").append(day);
-  console.log(day);
+
+
   database.ref("user_meds/").on("value", (snapshot) => {
     const allMedications = snapshot.val();
     if (allMedications) {
@@ -46,13 +50,14 @@ $(document).ready(() => {
                 const medTime = snapshot.val();
                 // console.log(med + medTime.time);
                 $("#med-today").append(`
-                  		<div class="card bg-light mb-3" onclick="location.href='/medInfo'">
-                  			<h5 class="card-header"> ${med} </h5>
-                  			<div class="card-body">
-                        Dosage: ${dosage} </br>
-                        Side Effects: ${side_effects}
-                  			</div>
-                  		</div>`);
+              		<div class="card bg-light mb-3" onclick="location.href='/medInfo/${med}'">
+              			<h5 class="card-header"> ${med} </h5>
+              			<div class="card-body">
+                    Dosage: ${dosage} </br>
+                    Side Effects: ${side_effects}
+              			</div>
+              		</div>
+                `);
               })
             }
 

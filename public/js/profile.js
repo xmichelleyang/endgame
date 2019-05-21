@@ -16,38 +16,91 @@ $(document).ready (() => {
     // Define it as database
     const database = firebase.database();
 
+
+    // Load in user data
+    database.ref("user_info/").on("value", (snapshot) => {
+      const userInfo = snapshot.val();
+      $("#userName").html(userInfo.name);
+      $("#phone").html(userInfo.phone);
+      $("#email").html(userInfo.email);
+      // $(#"profilePhoto").src();
+    });
+
+
+    // Load in medicines
 		database.ref("user_meds/").on("value", (snapshot) => {
+
+      // Get a list of all the medicines
 			const allMedications = snapshot.val();
 			console.log("All medications so far", allMedications);
 
 			// If there are users that exist
 			if(allMedications) {
+        // Reset HTML to be blank
 				$("#user-info").html("");
 				Object.keys(allMedications).forEach((med) => {
-          $("#user-info").append(`
-          		<div class="card bg-light mb-3">
+          console.log(med);
+
+          database.ref("user_meds/" + med).on("value", (snapshot) => {
+            var medInfos = snapshot.val();
+            console.log( "medications", medInfos);
+            var dosage = medInfos.dosage;
+            var side_effects = medInfos.side_effects;
+            var url =  "'/medInfo/" + med +"'";
+            $("#user-info").append(`
+          		<div class="card mb-3"  onclick="location.href=${url}">
           			<h5 class="card-header"> ${med} </h5>
           			<div class="card-body">
+                  Dosage: ${dosage} <br>
+                  Side Effects: ${side_effects} <br>
           			</div>
-          		</div>`);
+          		</div>
+            `);
+          });
 
 				})
 			}
 		});
 
 
-		//
-		// $.ajax({
-		// 	url: 'data',
-		// 	type: 'GET',
-		// 	dataType: 'json',
-		// 	success: (data) => {
-		// 		console.log("Ajax successful", data );
-		// 		$("#user-name").html("<p>" + data["name"] + "</p>");
-		// 		$("#user-info").html("<p><strong>Medications: </strong><br>" + data["medications"] + "</p>");
-		//
-		// 	}
-		// });
 
+
+    // Update user's information
+    $("#userNameClick").click(() => {
+      var change = prompt('What would you like to change your name to?');
+    	// If user presses cancel
+    	if (change == null) {
+        	return
+        }
+      database.ref('user_info').update({
+        name: change
+      });
+    });
+
+
+    $("#phoneClick").click(() => {
+      var change = prompt('What would you like to change your phone number to?');
+    	// If user presses cancel
+    	if (change == null) {
+        	return
+      }
+      database.ref('user_info').update({
+        phone: change
+      });
+
+    });
+
+    $("#emailClick").click(() => {
+
+      var change = prompt('What would you like to change your email to?');
+      // If user presses cancel
+      if (change == null) {
+          return
+      }
+      database.ref('user_info').update({
+        email: change
+      });
+
+    });
 
 	});

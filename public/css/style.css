@@ -1,32 +1,68 @@
 body {
-    text-align: center;
-    padding-bottom: 100px;
+	text-align: center;
+	margin: 0;
+	background-color:#E2C8CB;
+  padding-bottom: 100px;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.mainpageheader{
-  font-style: italic;
+.first{
+  font-family: 'Sansita', sans-serif;
+  font-style: bold;
+  font-size: 50px;
 }
-.add-date{
-  width: 10%;
+
+.weekday-header{
+	padding: 5%;
 }
+
+.btn btn-primary {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
 h1 {
-		padding: 30px;
+   padding: 30px;
+    font-family: 'Sansita', sans-serif;
+    font-style: bold;
+    font-size: 50px;
+}
+
+.tagline{
+  padding: 50px;
+  font-family: 'Sansita', sans-serif;
+  font-size: 20px;
 }
 
 label {
-		font-size: 18px;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 /* index page CSS */
 .login {
-	 width: 30%;
+	  width: 30%;
 		margin: auto;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 .signup {
 		margin-top: 5%;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 img.card {
@@ -44,7 +80,8 @@ img.card {
 	justify-content: center;
 	align-items: center;
 	top: 0px;
-	left: 0px;
+  left: 0px;
+
 }
 
 .big-text-box{
@@ -70,10 +107,14 @@ img.card {
   padding-left: 20%;
   padding-right: 20%;
 }
+#addTime {
+	margin-bottom: 10%;
+}
 
 #today-date {
    font-weight: bold;
-   font-style: italic;
+   font-family: 'Open Sans', sans-serif;
+
 }
 #accountInfo {
   width: 100%;
@@ -94,6 +135,8 @@ img.card {
 
 ion-icon {
   font-size: 70%;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
 .days {

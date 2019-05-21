@@ -15,6 +15,17 @@ $(document).ready(() => {
   // Define it as database
   const database = firebase.database();
 
+  // Retrieve the template data from the HTML (jQuery is used here).
+  // var template = $('#handlebars-demo').html();
+  // // Compile the template data into a function
+  // var templateScript = Handlebars.compile(template);
+  // var days = {"ababab" : "Sunday"};
+  // var html = templateScript(days);
+  // // console.log(html);
+  // // Insert the HTML code into the page
+  // $('.addMedDays').append(html);
+  // var oneDay = "Sunday";
+
 
   // Adding times
   $("#add-sun").click(() => {
@@ -65,6 +76,9 @@ $(document).ready(() => {
     }
 
   })
+  // $(".day-button").click(function() {
+  //   window.location = "/home/" + this.id;
+  // });
 
   // Adding
   // console.log("hello");
@@ -72,58 +86,73 @@ $(document).ready(() => {
 
     // console.log("OMG!!");
     const name = $("#medNameBox").val();
-    const time = $("#medTimeBox").val();
-    const day = document.getElementById('addMedDay');
-    console.log(day);
-    //FIXME
-    var ampm; //= document.getElementById("medTimeBox2").checked;
-    // var ampm2 = document.getElementById("medTimeBox3").checked;
-    // console.log(document.getElementById("medTimeBox2"));
-    //if (document.getElementById("medTimeBox2").checked)
-      ampm = "am";
-    // if (document.getElementById("medTimeBox3") != null)
-    //   ampm = "pm";
-    // time;
+    // const time = $("#medTimeBox").val();
+    // const day = document.getElementById("addMedDay").innerHTML;
+    // var time = document.getElementById("medTime").value;
+    // medTime
+    // console.log(day);
     // console.log(time);
+
+    // var times = {};
+    // times[day] = time;
+    // console.log(times);
+
+
     const desc = $("#medDescBox").val();
     const side_effects = $("#medSideEffectsBox").val();
     const dosage = $("#medDosageBox").val();
     // console.log("input was", name);
 
+    console.log(times);
     //
     // database.ref("user_meds/" + name).set({
+    //   Monday: time,
     //   name: name,
     //   desc: desc,
     //   side_effects: side_effects,
     //   dosage: dosage
     // });
 
-    // alert("Added Successfully");
+    alert("Added Successfully");
 
     // window.location = "/home";
   });
 });
+var times = {};
 
-
-function addMedSched() {
-  // var number = document.getElementsByClassName('form-control').length;
-  // var locations = [];
-  // var startDates = [];
-  // var endDates = [];
-  if (document.getElementById('time') === "") {
-    alert("Please isnert time");
-    return;
-  } else if (!(document.getElementById('pm') || document.getElementById('pm'))) {
-    alert("Please select am pm");
-    return;
-  }
-  var medTime = document.getElementById('time');
-  console.log(medTime);
-  if (document.getElementById('pm'))
-    medTime.concat("pm");
-  if (document.getElementById('am'))
-    medTime.concat("am");
-
-  alert(medTime);
-
+function addToMon() {
+  const day = "Monday"; // document.getElementById("addMedDay").innerHTML;
+  var time = document.getElementById("medTimeMon").value;
+  times[day] = time;
+}
+function addToTue() {
+  const day = "Tuesday";
+  var time = document.getElementById("medTimeTue").value;
+  times[day] = time;
+}
+function addToWed() {
+  const day = "Wednesday";
+  var time = document.getElementById("medTimeWed").value;
+  times[day] = time;
+}
+function addToThu() {
+  const day = "Thursday";
+  var time = document.getElementById("medTimeThu").value;
+  times[day] = time;
+}
+function addToFri() {
+  const day = "Friday";
+  var time = document.getElementById("medTimeFri").value;
+  times[day] = time;
+}
+function addToSat() {
+  const day = "Saturday";
+  var time = document.getElementById("medTimeSat").value;
+  times[day] = time;
+}
+function addToSun() {
+  const day = "Sunday";
+  var time = document.getElementById("medTimeSun").value;
+  times[day] = time;
+  console.log(times);
 }

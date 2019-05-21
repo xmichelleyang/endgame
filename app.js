@@ -41,13 +41,15 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/signup', index.signUp);
 app.get('/home', index.home);
+app.get('/home/:day', index.home);
 app.get('/overview', index.overview);
 app.get('/addMed', index.addMed);
 app.get('/medInfo', index.medInfo);
+app.get('/medInfo/:med', index.medInfo);
 app.get('/profile', index.profile);
 app.get('/day', index.day);
-app.get('/medAll', index.day);
 app.get('/data', index.data);
+app.get('/404', index.error);
 
 
 http.createServer(app).listen(app.get('port'), function(){
