@@ -40,12 +40,15 @@ $(document).ready (() => {
           		<div class="card bg-light mb-3">
           			<h5 class="card-header"> ${med} </h5>
           			<div class="card-body">
+                Dosage: ${med.dosage} <br>
+                Side Effects: ${med.side_effects} <br>
           			</div>
           		</div>`);
-
 				})
 			}
 		});
+
+
 
 
     // Update user's information
@@ -70,6 +73,7 @@ $(document).ready (() => {
       database.ref('user_info').update({
         phone: change
       });
+
     });
 
     $("#emailClick").click(() => {
