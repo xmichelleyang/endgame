@@ -6,7 +6,9 @@ body {
 .mainpageheader{
   font-style: italic;
 }
-
+.add-date{
+  width: 10%;
+}
 h1 {
 		padding: 30px;
 }
@@ -107,6 +109,10 @@ ion-icon {
   border-radius: 25%;
   padding-top: 3%;
   padding-bottom: 3%;
+}
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
 }
 
 .day-button{
