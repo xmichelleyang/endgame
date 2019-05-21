@@ -5,6 +5,10 @@ body {
   padding-bottom: 100px;
 }
 
+.mainpageheader{
+  font-style: italic;
+}
+
 h1 {
 		padding: 30px;
 }
@@ -67,6 +71,10 @@ img.card {
   padding-right: 20%;
 }
 
+#today-date {
+   font-weight: bold;
+   font-style: italic;
+}
 #accountInfo {
   width: 100%;
   justify-content: flex-start;
