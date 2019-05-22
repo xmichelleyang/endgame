@@ -8,14 +8,21 @@ Improvements
 ## Screenshots of updated UI
 
 ### Log-in Page
+![Login](UISkeleton/Milestone4/Login.jpg)
 
 ### Home Page
+![Home](UISkeleton/Milestone4/Home.jpg)
 
 ### Add Medicine Page
+![AddMedicine](UISkeleton/Milestone4/AddMedicine.jpg)
 
 ### Medicine Page
+![Overview1](UISkeleton/Milestone4/Overview1.jpg)
+![Overview2](UISkeleton/Milestone4/Overview2.jpg)
 
 ### Profile Page
+![Profile1](UISkeleton/Milestone4/Profile1.jpg)
+![Profile2](UISkeleton/Milestone4/Profile2.jpg)
 
 ## UI Skeleton Improvements
 Previously, the data was displayed in cards with no data inside. Now, each card is displayed with the most pertinent information, the dosage required and the side effects.
