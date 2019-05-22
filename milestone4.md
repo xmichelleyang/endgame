@@ -8,7 +8,7 @@ Improvements
 ## Screenshots of updated UI
 
 ### Log-in Page
-![loginpage](UISkeleton/Milestone4/1. Login.jpg)
+![1. Login](UISkeleton/Milestone4/1. Login.jpg)
 ### Home Page
 
 ### Add Medicine Page
