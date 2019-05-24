@@ -16,22 +16,17 @@ $(document).ready(() => {
   // Define it as database
   const database = firebase.database();
 
-
   // Adding
   $("#signUp").click(() => {
     const name = $("#userName").val();
     const pw = $("#userPW").val();
+    const email = $("#userEmail").val();
     const phone = $("#userPhone").val();
-
-  	database.ref("user_info/").set({
+  	database.ref("user_info").update({
   		name: name,
-      passord: pw,
+      password: pw,
+      email: email,
       phone: phone
   	});
-
-
-
   });
-
-
 });

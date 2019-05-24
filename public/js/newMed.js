@@ -182,7 +182,7 @@ $(document).ready(() => {
     }
     else {
       var time = $("#medTimeSun").val(); //document.getElementById("medTimeMon").value;
-      database.ref("user_meds/" + name).update({
+      database.ref("user_meds/" + name).set({
         Sunday: time,
         name: name,
         desc: desc,

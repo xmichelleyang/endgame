@@ -23,10 +23,17 @@ $(document).ready(() => {
 
   var d = new Date();
   var day = $("#day").text();
-  if(!day || day == "") {
+  if (!day || day == "") {
     day = d.getWeekDay();
   }
   $("#today-date").append(day);
+
+  // console.log(d);
+  // console.log(day);
+  // var yes = d - 1;
+  // var yesD = yes.getWeekDay();
+  // $("#yes-date").append(yes);
+  // $("#tom-date").append(day);
 
 
   database.ref("user_meds/").on("value", (snapshot) => {

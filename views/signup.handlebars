@@ -8,20 +8,14 @@
 <body>
 	<div class="center-container">
 		<h1>New Account</h1>
+		<h2>Never skip a pill again</h2>
 		<div class="login">
-			<div class="form-group">
-				<label>Name</label>
-				<input id="userName" class="form-control" placeholder="Full Name">
-			</div>
-			<div class="form-group">
-				<label>Password</label>
-				<input id="userPW" class="form-control" placeholder="Password">
-			</div>
-			<div class="form-group">
-				<label>Phone Number</label>
-				<input id="userPhone" class="form-control" placeholder="123-456-7890">
-			</div>
-			<button id="signUp" onclick="location.href='/home'" type="submit" class="btn btn-primary">Create</button>
+			<input id="userName" class="form-control user-input" placeholder="Full Name">
+			<!-- TODO Create email for Email -->
+			<input id="userEmail" class="form-control user-input" placeholder="Email Address">
+			<input id="userPW" class="form-control user-input" placeholder="Password">
+			<input id="userPhone" class="form-control user-input" placeholder="123-456-7890">
+			<button id="signUp" onclick="location.href='/home'" type="submit" class="user-btn">Create</button>
 		</div>
 	</div>
 

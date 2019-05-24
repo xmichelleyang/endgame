@@ -2,37 +2,18 @@
 
 <head>
 	{{>header}}
-
-
 </head>
-
-<style>
-	body{
-		background-color: #E2C8CB
-	}
-</style>
 
 <body>
 	<div class="center-container">
-
-		<h1 class="first">Medilarm</h1>
-		<h2 class="tagline">Never skip a pill again</h2>
-		
+		<h1>Medilarm</h1>
+		<h2>Never skip a pill again</h2>
 		<div class="login">
-			<div class="form-group">
-				<label>Username</label>
-				<input class="form-control" placeholder="Enter email">
-			</div>
-			<div class="form-group">
-				<label>Password</label>
-				<input class="form-control" placeholder="Password">
-			</div>
-			<button onclick="location.href='/home'" type="submit" class="btn btn-primary">Login</button>
-		</div>
-
-		<div class="signup">
-			<label>New?</label> </br>
-			<button onclick="location.href='/signup'" type="submit" class="btn btn-primary">Sign Up</button>
+			<input class="form-control user-input" placeholder="Email">
+			<input class="form-control user-input" placeholder="Password">
+			<button onclick="location.href='/home'" class="user-btn">Login</button>
+			<h5>Need an account?</h5>
+			<button onclick="location.href='/signup'"class="user-btn">Sign Up</button>
 		</div>
 	</div>
 </body>
