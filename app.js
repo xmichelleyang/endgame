@@ -4,14 +4,25 @@
  */
 
 const express = require('express');
- // var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
 
 var index = require('./routes/index');
-// Example route
-// var user = require('./routes/user');
+
+// var twilio = require('twilio');
+// const accountSid = 'AC5d4754395733868cf8f756e8bead0bcb';
+// const authToken = 'fb0611f3f13dfc0476a70f6c391962f1';
+// var twilio = require('twilio');
+// var client = new twilio(accountSid, authToken);
+//
+// client.messages.create({
+//     body: 'Hello from Node',
+//     to: '+12133990194',  // Mine
+//     from: '+13236010150' // Endgame Number
+// })
+// .then((message) => console.log(message.sid));
+
 
 const app = express();
 // var app = express();

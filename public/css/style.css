@@ -189,3 +189,7 @@ ion-icon {
 .day-button {
   background-color: white;
 }
+
+.navButton{
+  background-color: #3D243E !important;
+}
