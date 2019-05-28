@@ -41,9 +41,6 @@ $(document).ready(() => {
     }
   })
 
-  // var times = {};
-
-
   $("#addToMon").click(() => {
     const name = $("#medNameBox").val();
     const desc = $("#medDescBox").val();
@@ -52,19 +49,23 @@ $(document).ready(() => {
     if (checkValidity(name, dosage)) {
       alert("Insert name and dosage");
       return;
-    }
-    else {
-      const day = "Monday"; // document.getElementById("addMedDay").innerHTML;
-      var time = $("#medTimeMon").val(); //document.getElementById("medTimeMon").value;
-      database.ref("user_meds/" + name).update({
-        Monday: time,
-        name: name,
-        desc: desc,
-        side_effects: side_effects,
-        dosage: dosage
-      });
+    } else {
+      const day = "Monday";
+      var time = $("#medTimeMon").val();
+      if (confirm("Would you like to add " + name + " to " + day + " at " + time + "\?")) {
+        database.ref("user_meds/" + name).update({
+          Monday: time,
+          name: name,
+          desc: desc,
+          side_effects: side_effects,
+          dosage: dosage
+        });
+      }
     }
   })
+
+
+
 
   $("#addToTue").click(() => {
     const name = $("#medNameBox").val();
@@ -74,16 +75,17 @@ $(document).ready(() => {
     if (checkValidity(name, dosage)) {
       alert("Insert name and dosage");
       return;
-    }
-    else {
-      var time = $("#medTimeTue").val(); //document.getElementById("medTimeMon").value;
-      database.ref("user_meds/" + name).update({
-        Tuesday: time,
-        name: name,
-        desc: desc,
-        side_effects: side_effects,
-        dosage: dosage
-      });
+    } else {
+      var time = $("#medTimeTue").val();
+      if (confirm("Would you like to add " + name + " to Tuesday at " + time + "\?")) {
+        database.ref("user_meds/" + name).update({
+          Tuesday: time,
+          name: name,
+          desc: desc,
+          side_effects: side_effects,
+          dosage: dosage
+        });
+      }
     }
   })
 
@@ -95,16 +97,17 @@ $(document).ready(() => {
     if (checkValidity(name, dosage)) {
       alert("Insert name and dosage");
       return;
-    }
-    else {
-      var time = $("#medTimeWed").val(); //document.getElementById("medTimeMon").value;
-      database.ref("user_meds/" + name).update({
-        Wednesday: time,
-        name: name,
-        desc: desc,
-        side_effects: side_effects,
-        dosage: dosage
-      });
+    } else {
+      var time = $("#medTimeWed").val();
+      if (confirm("Would you like to add " + name + " to Wednesday at " + time + "\?")) {
+        database.ref("user_meds/" + name).update({
+          Wednesday: time,
+          name: name,
+          desc: desc,
+          side_effects: side_effects,
+          dosage: dosage
+        });
+      }
     }
   })
 
@@ -116,16 +119,17 @@ $(document).ready(() => {
     if (checkValidity(name, dosage)) {
       alert("Insert name and dosage");
       return;
-    }
-    else {
-      var time = $("#medTimeThu").val(); //document.getElementById("medTimeMon").value;
-      database.ref("user_meds/" + name).update({
-        Thursday: time,
-        name: name,
-        desc: desc,
-        side_effects: side_effects,
-        dosage: dosage
-      });
+    } else {
+      var time = $("#medTimeThu").val();
+      if (confirm("Would you like to add " + name + " to Thursday at " + time + "\?")) {
+        database.ref("user_meds/" + name).update({
+          Thursday: time,
+          name: name,
+          desc: desc,
+          side_effects: side_effects,
+          dosage: dosage
+        });
+      }
     }
   })
 
@@ -137,16 +141,17 @@ $(document).ready(() => {
     if (checkValidity(name, dosage)) {
       alert("Insert name and dosage");
       return;
-    }
-    else {
-      var time = $("#medTimeFri").val(); //document.getElementById("medTimeMon").value;
-      database.ref("user_meds/" + name).update({
-        Friday: time,
-        name: name,
-        desc: desc,
-        side_effects: side_effects,
-        dosage: dosage
-      });
+    } else {
+      var time = $("#medTimeFri").val();
+      if (confirm("Would you like to add " + name + " to Friday at " + time + "\?")) {
+        database.ref("user_meds/" + name).update({
+          Friday: time,
+          name: name,
+          desc: desc,
+          side_effects: side_effects,
+          dosage: dosage
+        });
+      }
     }
   })
 
@@ -158,16 +163,17 @@ $(document).ready(() => {
     if (checkValidity(name, dosage)) {
       alert("Insert name and dosage");
       return;
-    }
-    else {
-      var time = $("#medTimeSat").val(); //document.getElementById("medTimeMon").value;
-      database.ref("user_meds/" + name).update({
-        Saturday: time,
-        name: name,
-        desc: desc,
-        side_effects: side_effects,
-        dosage: dosage
-      });
+    } else {
+      var time = $("#medTimeSat").val();
+      if (confirm("Would you like to add " + name + " to Saturday at " + time + "\?")) {
+        database.ref("user_meds/" + name).update({
+          Saturday: time,
+          name: name,
+          desc: desc,
+          side_effects: side_effects,
+          dosage: dosage
+        });
+      }
     }
   })
 
@@ -179,93 +185,25 @@ $(document).ready(() => {
     if (checkValidity(name, dosage)) {
       alert("Insert name and dosage");
       return;
-    }
-    else {
-      var time = $("#medTimeSun").val(); //document.getElementById("medTimeMon").value;
-      database.ref("user_meds/" + name).set({
-        Sunday: time,
-        name: name,
-        desc: desc,
-        side_effects: side_effects,
-        dosage: dosage
-      });
+    } else {
+      var time = $("#medTimeSun").val();
+      if (confirm("Would you like to add " + name + " to Sunday at " + time + "\?")) {
+        database.ref("user_meds/" + name).update({
+          Sunday: time,
+          name: name,
+          desc: desc,
+          side_effects: side_effects,
+          dosage: dosage
+        });
+      }
     }
   })
-  // $("#addToMon").click(() => {
-  //   const name = $("#medNameBox").val();
-  //   const desc = $("#medDescBox").val();
-  //   const side_effects = $("#medSideEffectsBox").val();
-  //   const dosage = $("#medDosageBox").val();
-  //   if (checkValidity(name, dosage)) {
-  //     alert("Insert name and dosage");
-  //     return;
-  //   }
-  //   else {
-  //     const day = "Monday"; // document.getElementById("addMedDay").innerHTML;
-  //     var time = $("#medTimeMon").val(); //document.getElementById("medTimeMon").value;
-  //     database.ref("user_meds/" + name).set({
-  //       Monday: time,
-  //       name: name,
-  //       desc: desc,
-  //       side_effects: side_effects,
-  //       dosage: dosage
-  //     });
-  //   }
-  //   // toFB(database, name, time, desc, side_effects, dosage);
-  //   // times[day] = time;
-  //   // console.log(times);
-  // })
-
-
-//
-//   $("#addNewMed").click(() => {
-//
-//     const name = $("#medNameBox").val();
-//     // const time = $("#medTimeBox").val();
-//     // const day = document.getElementById("addMedDay").innerHTML;
-//     // var time = document.getElementById("medTime").value;
-//     // medTime
-//     // console.log(day);
-//     // console.log(time);
-//
-//     // var times = {};
-//     // times[day] = time;
-//     // console.log(times);
-//     const desc = $("#medDescBox").val();
-//     const side_effects = $("#medSideEffectsBox").val();
-//     const dosage = $("#medDosageBox").val();
-//     // console.log("input was", name);
-//     $("#addToTue").click(() => {
-//       const day = "Tuesday"; // document.getElementById("addMedDay").innerHTML;
-//       var time = $("#medTimeTue").val(); //document.getElementById("medTimeMon").value;
-//       // times[day] = time;
-//       console.log(times);
-//       // database.ref("user_meds/" + name).set({
-//       //   Tuesday: time,
-//       //   name: name,
-//       //   desc: desc,
-//       //   side_effects: side_effects,
-//       //   dosage: dosage
-//       // });
-//     })
-//     // console.log(times);
-//     //
-//     // database.ref("user_meds/" + name).set({
-//     //   Monday: time,
-//     //   name: name,
-//     //   desc: desc,
-//     //   side_effects: side_effects,
-//     //   dosage: dosage
-//     // });
-//
-//     // alert("Added Successfully");
-//
-//     // window.location = "/home";
-//   });
 });
+
 function checkValidity(n, d) {
   return (n == "") || (d == "");
 }
+
 function toFB(database, name, time, desc, side_effects, dosage) {
   // console.log(name);
   database.ref("user_meds/" + name).set({
@@ -276,49 +214,3 @@ function toFB(database, name, time, desc, side_effects, dosage) {
     dosage: dosage
   });
 }
-// var times = {};
-//
-// function addToMon() {
-//   const day = "Monday"; // document.getElementById("addMedDay").innerHTML;
-//   var time = document.getElementById("medTimeMon").value;
-//   times[day] = time;
-//   console.log(times);
-// }
-
-// function addToTue() {
-//   const day = "Tuesday";
-//   var time = document.getElementById("medTimeTue").value;
-//   times[day] = time;
-//   console.log(times);
-// }
-//
-// function addToWed() {
-//   const day = "Wednesday";
-//   var time = document.getElementById("medTimeWed").value;
-//   times[day] = time;
-// }
-//
-// function addToThu() {
-//   const day = "Thursday";
-//   var time = document.getElementById("medTimeThu").value;
-//   times[day] = time;
-// }
-//
-// function addToFri() {
-//   const day = "Friday";
-//   var time = document.getElementById("medTimeFri").value;
-//   times[day] = time;
-// }
-//
-// function addToSat() {
-//   const day = "Saturday";
-//   var time = document.getElementById("medTimeSat").value;
-//   times[day] = time;
-// }
-//
-// function addToSun() {
-//   const day = "Sunday";
-//   var time = document.getElementById("medTimeSun").value;
-//   times[day] = time;
-//   console.log(times);
-// }

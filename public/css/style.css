@@ -1,5 +1,4 @@
 /* Team Endgame Style */
-
 /* *************************************************************** */
 /* General Body Structure */
 body {
@@ -23,9 +22,8 @@ h2 {
   font-family: 'Sansita', sans-serif !important;
   font-size: 150% !important;
 }
+
 /* *************************************************************** */
-
-
 /* *************************************************************** */
 /* Login Page Elements */
 .login {
@@ -37,24 +35,39 @@ h2 {
 
 /* Buttons for submission */
 .user-btn {
-	background-color: #370B1D;
-	border-color: white;
-	color: white;
-	font-weight: bold;
-	border-radius: 8%;
-	width: 40%;
-	padding: 2%;
-	margin-top: 5%;
-	margin-bottom: 15%;
+  background-color: #370B1D;
+  border-color: white;
+  color: white;
+  font-weight: bold;
+  border-radius: 8%;
+  width: 40%;
+  padding: 2%;
+  margin-top: 5%;
+  margin-bottom: 15%;
 }
 
 .user-btn:hover {
   background-color: #FCF0FF;
-	color: #370B1D;
+  color: #370B1D;
 }
+
 /* *************************************************************** */
 
 
+/* *************************************************************** */
+/* Add Med Page Elements */
+.addMedContainer {
+  width: 30%;
+  margin: auto;
+}
+
+.medToAdd {
+  width: 50%;
+  margin-top: 20%;
+  float: right;
+}
+
+/* *************************************************************** */
 
 .btn btn-primary {
   background-color: #4CAF50 !important;
@@ -76,9 +89,8 @@ user-info label {
 }
 
 .user-input {
-	margin-bottom: 8%;
+  margin-bottom: 8%;
 }
-
 
 img.card {
   width: 50px;
