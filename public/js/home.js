@@ -1,11 +1,6 @@
 $(document).ready(() => {
 
-// Sending Alarm Systems
 
-// let cue = 'Alarm test 1';
-// setTimeout(function() {
-//     return console.log(cue);
-// }, 5000);
 
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -33,15 +28,8 @@ $(document).ready(() => {
   if (!day || day == "") {
     day = d.getWeekDay();
   }
+  var curTime = d.getHours() + ":" + d.getMinutes();
   $("#today-date").append(day);
-
-  // console.log(d);
-  console.log(day);
-  // var yes = d - 1;
-  // var yesD = yes.getWeekDay();
-  // $("#yes-date").append(yes);
-  // $("#tom-date").append(day);
-
 
   database.ref("user_meds/").on("value", (snapshot) => {
     const allMedications = snapshot.val();
@@ -53,28 +41,46 @@ $(document).ready(() => {
           var dosage = medSchedule.dosage;
           var side_effects = medSchedule.side_effects;
           Object.keys(medSchedule).forEach((sched) => {
-
             if (sched === day) {
               var time = snapshot.key;
-
-              console.log(time);
-
               if (dosage == null)
                 dosage = 0;
               if (side_effects == null)
                 side_effects = "None";
               database.ref("user_meds/" + med + "/" + sched).on("value", (snapshot) => {
+                // Time of Medication
                 var medTime = snapshot.val();
+
                 // Changing it from 24hr to 12hr format
                 var H = +medTime.substr(0, 2);
                 var h = H % 12 || 12;
                 var ampm = (H < 12 || H === 24) ? "AM" : "PM";
-                var medTime = h + medTime.substr(2, 3) + ampm;
-                console.log(medTime);
+                var medTime12 = h + medTime.substr(2, 3) + ampm;
+
+                // Setting up Alarm
+                var diff = curTime - medTime;
+                var hhDif = medTime.substr(0, 2) - curTime.substr(0, 2);
+                // TODO: Add conditional  (If alarm already sent, dont send again)
+                if (hhDif >= 0) { // If upcoming
+                  var mmDif = medTime.substr(3, 5) - curTime.substr(3, 5);
+                  var alarmInMS = (hhDif * 60 + mmDif) * 60000;
+
+                  if (mmDif >= 0) {
+                    console.log("Alarm to be sent in " + alarmInMS + "ms");
+                    let alarmMSG = "IT IS " + medTime12 + "!! TAKE " + med + " NOW!!!!!!!";
+
+                    // TODO: Use Twilio here to send scheduled msg at the time
+                    setTimeout(function() {
+                      // return alert(alarmMSG);
+                    }, alarmInMS);
+                  }
+                }
+
+                // Applying to Home Page
                 $("#med-today").append(`
               		<div class="card bg-light mb-3" onclick="location.href='/medInfo/${med}'">
 
-              			<h5 class="card-header"> ${med} <span style="float: right;"> ${medTime} </span></h5>
+              			<h5 class="card-header"> ${med} <span style="float: right;"> ${medTime12} </span></h5>
               			<div class="card-body">
                     Dosage: ${dosage} </br>
                     Side Effects: ${side_effects}
