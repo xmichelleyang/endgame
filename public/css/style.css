@@ -108,7 +108,7 @@ img.card {
   justify-content: center;
   align-items: center;
   top: 0px;
-  left: 0px;
+  /* left: 0px; */
 }
 
 .big-text-box {
@@ -124,7 +124,7 @@ img.card {
 }
 
 .clickable {
-  font-weight: bold;
+  /* font-weight: bold; */
   cursor: pointer;
 }
 

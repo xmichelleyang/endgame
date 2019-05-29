@@ -48,7 +48,7 @@ $(document).ready (() => {
             var side_effects = medInfos.side_effects;
             var url =  "'/medInfo/" + med +"'";
             $("#user-info").append(`
-          		<div class="card mb-3"  onclick="location.href=${url}">
+          		<div class="card mb-3 clickable"  onclick="location.href=${url}">
           			<h5 class="card-header"> ${med} </h5>
           			<div class="card-body">
                   Dosage: ${dosage} <br>
