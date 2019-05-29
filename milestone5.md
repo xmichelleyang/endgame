@@ -30,7 +30,7 @@ A written explanation of how your UI's screenshots have improved upon the versio
 ## App Storyboard Description
 A paragraph describing how someone in your target user population would use your app in order to help them achieve relevant goals. Think of this as a storyboard(setting+sequence+satisfaction) except written in a paragraph instead of using drawings. (2 points)
 
-## Screenshots of updated UI
+## Screenshots of Data Visualization
 
 ### Home Page
 ![Home](UISkeleton/Milestone5/Home.jpg)
