@@ -210,7 +210,7 @@ $(document).ready(() => {
       $("#sideEffectsDesc").html(`<div class="input-group">
         <div class="input-group-prepend">
         </div>
-        <input id="sideEfectsInput" class="form-control" value="${prev}"></input>
+        <input id="sideEffectsInput" class="form-control" value="${prev}"></input>
       </div>`);
 
       // User clicks no
@@ -227,7 +227,7 @@ $(document).ready(() => {
 
       // User clicks yes
       $("#sideYes").click(() => {
-        typed = $("#sideEfectsInput").val();
+        typed = $("#sideEffectsInput").val();
 
         // First clears dosage to update
         database.ref('user_meds/' + medName).update({
