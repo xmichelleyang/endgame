@@ -54,102 +54,201 @@ $(document).ready(() => {
     // Dosage
     dosage = data.dosage;
     if(!dosage) {
-      console.log("No dosage found!");
+      dosage = "None"
     }
-    else {
-      $("#medDosage").html(`
+    $("#medDosage").html(`
         <div class="card mb-3">
           <div class="card-header"><h5> <div class="left-align"> Dosage</div>  <div class="right-align" id="dosageRight">  <ion-icon class="clickable" style="margin-top:5px" id="dosageClick" name="create"></ion-icon> </div> </h5> </div>
           <div class="card-body">
             <p class="card-text" id="dosageDesc"> ${dosage} </p>
           </div>
         </div>
-      `);
-    }
+    `);
 
     // Description
     description = data.desc;
     if (!description) {
-      console.log("No description found!");
+      description = "None"
     }
-    else {
-      $("#medDesc").html(`
-        <div class="card mb-3">
-            <div class="card-header"><h5> <div class="left-align"> Description </div>   <div class="right-align" id="descClick" style="margin-top:5px">  <ion-icon class="clickable" id="descClick" name="create"></ion-icon> </div> </h5> </div>          <div class="card-body">
-            <p class="card-text">${description}!</p>
-          </div>
+    $("#medDesc").html(`
+      <div class="card mb-3">
+        <div class="card-header"><h5> <div class="left-align"> Description </div>   <div class="right-align" id="descRight">  <ion-icon class="clickable" style="margin-top:5px" id="descClick" name="create"></ion-icon> </div> </h5> </div>
+        <div class="card-body">
+          <p class="card-text" id="descDesc">${description}</p>
         </div>
-      `);
-    }
+      </div>
+    `);
 
     // Side Effects
     side_effects = data.side_effects;
 		if (!side_effects) {
-      console.log("No side effects found!");
+      side_effects = "None";
 		}
-    else {
-			$("#medSideEffects").html(`
-        <div class="card mb-3">
-          <div class="card-header"><h5> <div class="left-align"> Side Effects </div>   <div class="right-align" id="sideEffectsClick" style="margin-top:5px">  <ion-icon class="clickable" id="sideEffectsClick" name="create"></ion-icon> </div> </h5> </div>
-    			<div class="card-body">
-    				<p class="card-text">${side_effects}!</p>
-    			</div>
+		$("#medSideEffects").html(`
+      <div class="card mb-3">
+        <div class="card-header"><h5> <div class="left-align"> Side Effects </div>   <div class="right-align" id="sideEffectsRight">  <ion-icon class="clickable" style="margin-top:5px" id="sideEffectsClick" name="create"></ion-icon> </div> </h5> </div>
+  			<div class="card-body">
+  				<p class="card-text" id="sideEffectsDesc">${side_effects}</p>
+  			</div>
+      </div>
+    `);
+
+
+    // ---------------------------------------- ONCLICKS ----------------------------------------
+
+    // Dosage
+    $("#dosageClick").click(() => {
+      // Get previous item
+      var prev = $("#dosageDesc").text().trim();
+      // Change upper right hand corner
+      $("#dosageRight").html(`<ion-icon class="clickable" name="close" id="dosNo"></ion-icon> <ion-icon class="clickable" name="checkmark" id="dosYes"></ion-icon>`)
+      // Create a textbox and populate it with the previous item
+      $("#dosageDesc").html(`<div class="input-group">
+        <div class="input-group-prepend">
         </div>
-      `);
-	  }
+        <input id="dosageInput" class="form-control" value="${prev}"></input>
+      </div>`);
 
-      // Update user's information
-      $("#dosageClick").click(() => {
+      // User clicks no
+      $("#dosNo").click(() => {
+        // First clears dosage to update
+        database.ref('user_meds/' + medName).update({
+          dosage: ""
+        });
+        //Then sets to previous item
+        database.ref('user_meds/' + medName).update({
+          dosage: prev
+        });
+      });
 
-        var prev = $("#dosageDesc").text().trim();
+      // User clicks yes
+      $("#dosYes").click(() => {
+        typed = $("#dosageInput").val();
 
-        $("#dosageRight").html(`<ion-icon class="clickable" name="close" id="dosNo"></ion-icon> <ion-icon class="clickable" name="checkmark" id="dosYes"></ion-icon>`)
-        console.log("prev:", prev);
-        $("#dosageDesc").html(`<div class="input-group">
-          <div class="input-group-prepend">
-          </div>
-          <input id="dosageInput" class="form-control" value="${prev}"></input>
-        </div>`);
-
-        $("#dosNo").click(() => {
-          console.log("woo");
+        // First clears dosage to update
+        database.ref('user_meds/' + medName).update({
+          dosage: ""
         });
 
-        $("#dosYes").click(() => {
-          console.log("hehehe");
-          typed = $("#dosageInput").val();
+        //Then sets dosage to whatever was typed.
+        database.ref('user_meds/' + medName).update({
+          dosage: typed
+        });
 
+        if (typed == "None") {
           database.ref('user_meds/' + medName).update({
-            dosage: typed
+            dosage: "-1"
           });
 
-          $("#dosageDesc").html(typed);
-          $("#dosageRight").html(` <ion-icon class="clickable" style="margin-top:5px" id="dosageClick" name="create"></ion-icon>`);
+          database.ref('user_meds/' + medName).update({
+            dosage: ""
+          });
+        }
 
-        });
-
-    });
-
-
-    $("#descClick").click(() => {
-      var change = prompt('What would you like to change the description to?');
-      // If user presses cancel
-      if (change == null) {
-          return
-      }
-      database.ref('user_meds/' + medName).update({
-        desc: change
       });
     });
 
+    // Description
+    $("#descClick").click(() => {
+      // Get previous item
+      var prev = $("#descDesc").text().trim();
+      // Change upper right hand corner
+      $("#descRight").html(`<ion-icon class="clickable" name="close" id="descNo"></ion-icon> <ion-icon class="clickable" name="checkmark" id="descYes"></ion-icon>`)
+      // Create a textbox and populate it with the previous item
+      $("#descDesc").html(`<div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input id="descInput" class="form-control" value="${prev}"></input>
+      </div>`);
+
+      // User clicks no
+      $("#descNo").click(() => {
+
+        // First clears dosage to update
+        database.ref('user_meds/' + medName).update({
+          desc: ""
+        });
+        //Then sets to previous item
+        database.ref('user_meds/' + medName).update({
+          desc: prev
+        });
+      });
+
+      // User clicks yes
+      $("#descYes").click(() => {
+        typed = $("#descInput").val();
+
+        // First clears dosage to update
+        database.ref('user_meds/' + medName).update({
+          desc: ""
+        });
+
+        //Then sets dosage to whatever was typed.
+        database.ref('user_meds/' + medName).update({
+          desc: typed
+        });
+
+        if (typed == "None") {
+          database.ref('user_meds/' + medName).update({
+            desc: "-1"
+          });
+
+          database.ref('user_meds/' + medName).update({
+            desc: ""
+          });
+        }
+      });
+    });
+
+    // Side Effects
     $("#sideEffectsClick").click(() => {
-      var change = prompt('What would you like to change the side effects to?');
-      // If user presses cancel
-      if (change == null) {
-          return
-      }
-      database.ref('user_meds/' + medName).update({
-        side_effects: change
+      // Get previous item
+      var prev = $("#sideEffectsDesc").text().trim();
+      // Change upper right hand corner
+      $("#sideEffectsRight").html(`<ion-icon class="clickable" name="close" id="sideNo"></ion-icon> <ion-icon class="clickable" name="checkmark" id="sideYes"></ion-icon>`)
+      // Create a textbox and populate it with the previous item
+      $("#sideEffectsDesc").html(`<div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input id="sideEfectsInput" class="form-control" value="${prev}"></input>
+      </div>`);
+
+      // User clicks no
+      $("#sideNo").click(() => {
+        // First clears dosage to update
+        database.ref('user_meds/' + medName).update({
+          side_effects: ""
+        });
+        //Then sets to previous item
+        database.ref('user_meds/' + medName).update({
+          side_effects: prev
+        });
+      });
+
+      // User clicks yes
+      $("#sideYes").click(() => {
+        typed = $("#sideEfectsInput").val();
+
+        // First clears dosage to update
+        database.ref('user_meds/' + medName).update({
+          side_effects: ""
+        });
+
+        //Then sets dosage to whatever was typed.
+        database.ref('user_meds/' + medName).update({
+          side_effects: typed
+        });
+
+        // If type is None
+        if (typed == "None") {
+          database.ref('user_meds/' + medName).update({
+            side_effects: "-1"
+          });
+          database.ref('user_meds/' + medName).update({
+            side_effects: ""
+          });
+        }
+
       });
     });
 
