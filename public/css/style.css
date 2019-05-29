@@ -35,7 +35,7 @@ h2 {
 
 /* Buttons for submission */
 .user-btn {
-  background-color: #370B1D;
+  background-color: #2E4595;
   border-color: white;
   color: white;
   font-weight: bold;
@@ -48,7 +48,7 @@ h2 {
 
 .user-btn:hover {
   background-color: #FCF0FF;
-  color: #370B1D;
+  color:#2E4595;
 }
 
 /* *************************************************************** */
@@ -69,19 +69,6 @@ h2 {
 
 /* *************************************************************** */
 
-.btn btn-primary {
-  background-color: #4CAF50 !important;
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 50%;
-}
 
 user-info label {
   font-size: 18px;
@@ -172,7 +159,7 @@ ion-icon {
 }
 
 .medicine-case {
-  background-color: pink;
+  background-color:#196E63;
   width: 15%;
   display: inline-block;
   border-radius: 25%;
@@ -190,6 +177,31 @@ ion-icon {
   background-color: white;
 }
 
-.navButton{
-  background-color: #3D243E !important;
+
+.btn-secondary{
+  background-color:#2E4595 !important;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
+
+}
+.navButton{
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.navButton:hover{
+  background-color: #4CAF50;
+  color: white;
+}
+
