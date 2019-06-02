@@ -60,7 +60,8 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
@@ -85,7 +86,8 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
@@ -107,29 +109,9 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
-
-        // Setting up SMS
-        var hhDif = time.substr(0, time.indexOf(':')) - curTime.substr(0, curTime.indexOf(':'));
-        var mmDif = time.slice(-2) - curTime.slice(-2);
-        // console.log(hhDif + ":" + mmDif);
-        var alarmInMS = (hhDif * 60 + mmDif) * 60000;
-        // console.log("Alarm to be sent in " + alarmInMS + "ms");
-        if (alarmInMS > 0) {
-          client.messages.create({
-              body: 'ENDGAME SMS TESTING',
-              to: '+12133990194',  // Mine
-              from: '+13236010150' // Endgame Number
-          })
-          .then((message) => console.log(message.sid));
-          let alarmMSG = "IT IS " + curTime + "!! TAKE " + name + " NOW!!!!!!!";
-          console.log(alarmMSG);
-          // TODO: Use Twilio here to send scheduled msg at the time
-          setTimeout(function() {
-            // return alert(alarmMSG);
-          }, alarmInMS);
-        }
       }
     }
   })
@@ -150,7 +132,8 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
@@ -172,7 +155,8 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }

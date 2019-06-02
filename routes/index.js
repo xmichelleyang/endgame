@@ -66,24 +66,25 @@ database.ref("user_meds/").on("value", (snapshot) => {
           // Calculating Medication time - Current Time
           // Currently only set alarm for one week
           var dayDif = weekday.indexOf(medInfo) - weekday.indexOf(todayDay); // like Monday - Sunday = 1
-          dayDif = (dayDif < 0) ? dayDif += 7 : dayDif; // Sunday - Modnay = -1 + 7 = 6
+          // dayDif = (dayDif < 0) ? dayDif += 7 : dayDif; // Sunday - Modnay = -1 + 7 = 6
           // console.log("take " + medName + "today at " + medTime + ", and text it to " + userPhone);
           var hhDif = medTime.substr(0, 2) - curTime.substr(0, 2);
           var mmDif = medTime.substr(3, 5) - curTime.substr(3, 5);
 
           // Time difference in milli second
           var alarmInMS = ((dayDif * 24 + hhDif) * 60 + mmDif) * 60000;
-          if (alarmInMS >= 0) {
-            console.log("Alarm is set in " + alarmInMS + "ms to notify that " + medName + " needs to be taken at " + medTime12 + ". Text will be sent to " + userPhone + ".");
-            setTimeout(function() {
-              client.messages.create({
-                  body: 'It is ' + medTime12 + ' now. Take ' + medName + ". Have a nice day!",
-                  to: userPhone,
-                  from: '+13236010150' // Endgame Number
-                })
-                .then((message) => console.log(message.sid));
-            }, alarmInMS);
-          }
+
+          // Handle a case that Med needs to be taken curTime - 10 mins`
+          alarmInMS = (alarmInMS < 0) ? alarmInMS += (7 * 24 * 60 * 60 * 1000) : alarmInMS;
+          console.log("Alarm is set in " + dayDif + " days " + hhDif + " HR " + mmDif + " Minutes to notify that " + medName + " needs to be taken at " + medTime12 + ". Text will be sent to " + userPhone + ".");
+          setTimeout(function() {
+            client.messages.create({
+                body: 'It is ' + medTime12 + ' now. Take ' + medName + ". Have a nice day!",
+                to: userPhone,
+                from: '+13236010150' // Endgame Number
+              })
+              .then((message) => console.log(message.sid));
+          }, alarmInMS);
 
           database.ref("user_meds/" + medName).update({
             alarm: true
