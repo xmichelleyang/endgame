@@ -24,8 +24,6 @@ app.use(express.cookieParser('IxD secret key'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.static('views')); // CHECKME
-
 
 // development only
 if ('development' == app.get('env')) {
@@ -37,15 +35,11 @@ app.get('/signup', index.signUp);
 app.get('/home', index.home);
 app.get('/home/:day', index.home);
 app.get('/overview', index.overview);
-// TODO Implement for app screen alarm
-// app.get('/takeMed', index.takeMed);
-// app.get('/takeMed/:med', index.takeMed);
 app.get('/addMed', index.addMed);
 app.get('/medInfo', index.medInfo);
 app.get('/medInfo/:med', index.medInfo);
 app.get('/profile', index.profile);
 app.get('/day', index.day);
-app.get('/data', index.data);
 app.get('/404', index.error);
 
 
