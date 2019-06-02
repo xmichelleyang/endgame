@@ -1,7 +1,5 @@
 $(document).ready(() => {
 
-
-
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCNAO-j9z0dEE1Ko3f4icW96ze06beCHvw",
@@ -56,25 +54,6 @@ $(document).ready(() => {
                 var h = H % 12 || 12;
                 var ampm = (H < 12 || H === 24) ? "AM" : "PM";
                 var medTime12 = h + medTime.substr(2, 3) + ampm;
-
-                // Setting up Alarm
-                var diff = curTime - medTime;
-                var hhDif = medTime.substr(0, 2) - curTime.substr(0, 2);
-                // TODO: Add conditional  (If alarm already sent, dont send again)
-                if (hhDif >= 0) { // If upcoming
-                  var mmDif = medTime.substr(3, 5) - curTime.substr(3, 5);
-                  var alarmInMS = (hhDif * 60 + mmDif) * 60000;
-
-                  if (mmDif >= 0) {
-                    console.log("Alarm to be sent in " + alarmInMS + "ms");
-                    let alarmMSG = "IT IS " + medTime12 + "!! TAKE " + med + " NOW!!!!!!!";
-
-                    // TODO: Use Twilio here to send scheduled msg at the time
-                    setTimeout(function() {
-                      // return alert(alarmMSG);
-                    }, alarmInMS);
-                  }
-                }
 
                 // Applying to Home Page
                 $("#med-today").append(`
