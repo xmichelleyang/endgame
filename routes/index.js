@@ -64,10 +64,8 @@ database.ref("user_meds/").on("value", (snapshot) => {
           var medTime12 = h + medTime.substr(2, 3) + ampm;
 
           // Calculating Medication time - Current Time
-          // Currently only set alarm for one week
+          // Currently only set alarm for the following week
           var dayDif = weekday.indexOf(medInfo) - weekday.indexOf(todayDay); // like Monday - Sunday = 1
-          // dayDif = (dayDif < 0) ? dayDif += 7 : dayDif; // Sunday - Modnay = -1 + 7 = 6
-          // console.log("take " + medName + "today at " + medTime + ", and text it to " + userPhone);
           var hhDif = medTime.substr(0, 2) - curTime.substr(0, 2);
           var mmDif = medTime.substr(3, 5) - curTime.substr(3, 5);
 
@@ -77,6 +75,8 @@ database.ref("user_meds/").on("value", (snapshot) => {
           // Handle a case that Med needs to be taken curTime - 10 mins`
           alarmInMS = (alarmInMS < 0) ? alarmInMS += (7 * 24 * 60 * 60 * 1000) : alarmInMS;
           console.log("Alarm is set in " + dayDif + " days " + hhDif + " HR " + mmDif + " Minutes to notify that " + medName + " needs to be taken at " + medTime12 + ". Text will be sent to " + userPhone + ".");
+
+          // Function that after alarmInMS milliseconds sends out a text to remind of taking a medicine 
           setTimeout(function() {
             client.messages.create({
                 body: 'It is ' + medTime12 + ' now. Take ' + medName + ". Have a nice day!",
