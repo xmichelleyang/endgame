@@ -194,7 +194,8 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
@@ -216,7 +217,8 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }

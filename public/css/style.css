@@ -51,6 +51,15 @@ h2 {
   color:#2E4595;
 }
 
+.homeImg {
+  width: 9%;
+  position: absolute;
+  right: 25%;
+  top: 7%;
+  /* bottom: 5%; */
+}
+
+
 /* *************************************************************** */
 
 
@@ -195,8 +204,8 @@ ion-icon {
 
 }
 .navButton{
-  background-color: white; 
-  color: black; 
+  background-color: white;
+  color: black;
   border: 2px solid #4CAF50;
 }
 
@@ -204,4 +213,3 @@ ion-icon {
   background-color: #4CAF50;
   color: white;
 }
-

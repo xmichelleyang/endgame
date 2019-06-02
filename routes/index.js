@@ -26,13 +26,15 @@ const database = app.database();
 
 // SMS Scheduling for Today's Med
 // Getting today, i.e. Sunday
+
+var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 Date.prototype.getWeekDay = function() {
-  var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   return weekday[this.getDay()];
 }
 var today = new Date();
 var todayDay = today.getWeekDay();
 var curTime = today.getHours() + ":" + today.getMinutes(); // Current Time in our ideal format
+
 
 // User Phone
 var userPhone;
@@ -41,28 +43,36 @@ database.ref("user_info/").on("value", (snapshot) => {
   userPhone = userInfo['phone'];
 })
 
-// Accessing Firebase
+// Accessing Firebase for setting up Alarm
 database.ref("user_meds/").on("value", (snapshot) => {
   const allMedications = snapshot.val();
   for (var medName in allMedications) {
     var thisMed = allMedications[medName];
-    for (var medInfo in thisMed) {
-      if (medInfo === todayDay) {
-        var medTime = thisMed[medInfo];
 
-        // from 24hr format to 12hr format
-        var H = +medTime.substr(0, 2);
-        var h = H % 12 || 12;
-        var ampm = (H < 12 || H === 24) ? "AM" : "PM";
-        var medTime12 = h + medTime.substr(2, 3) + ampm;
+    if (!thisMed['alarm']) { // Alarm is false, so we need to set up alarm
+      // console.log("Alarm is not yet set for " + medName);
+      for (var medInfo in thisMed) {
+        // console.log(medName + " has " + weekday.indexOf(medInfo));
 
-        // console.log("take " + medName + "today at " + medTime + ", and text it to " + userPhone);
-        // Calculating Medtime - Current Time
-        var hhDif = medTime.substr(0, 2) - curTime.substr(0, 2);
-        if (hhDif >= 0) { // If upcoming
+        if (weekday.indexOf(medInfo) >= 0) { // If  medInfo is a date (ex Sunday)
+          // Medication Time
+          var medTime = thisMed[medInfo];
+          // from 24hr format to 12hr format
+          var H = +medTime.substr(0, 2);
+          var h = H % 12 || 12;
+          var ampm = (H < 12 || H === 24) ? "AM" : "PM";
+          var medTime12 = h + medTime.substr(2, 3) + ampm;
+
+          // Calculating Medication time - Current Time
+          // Currently only set alarm for one week
+          var dayDif = weekday.indexOf(medInfo) - weekday.indexOf(todayDay); // like Monday - Sunday = 1
+          dayDif = (dayDif < 0) ? dayDif += 7 : dayDif; // Sunday - Modnay = -1 + 7 = 6
+          // console.log("take " + medName + "today at " + medTime + ", and text it to " + userPhone);
+          var hhDif = medTime.substr(0, 2) - curTime.substr(0, 2);
           var mmDif = medTime.substr(3, 5) - curTime.substr(3, 5);
+
           // Time difference in milli second
-          var alarmInMS = (hhDif * 60 + mmDif) * 60000;
+          var alarmInMS = ((dayDif * 24 + hhDif) * 60 + mmDif) * 60000;
           if (alarmInMS >= 0) {
             console.log("Alarm is set in " + alarmInMS + "ms to notify that " + medName + " needs to be taken at " + medTime12 + ". Text will be sent to " + userPhone + ".");
             setTimeout(function() {
@@ -74,6 +84,11 @@ database.ref("user_meds/").on("value", (snapshot) => {
                 .then((message) => console.log(message.sid));
             }, alarmInMS);
           }
+
+          database.ref("user_meds/" + medName).update({
+            alarm: true
+          });
+
         }
       }
     }
