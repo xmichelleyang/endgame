@@ -59,16 +59,19 @@ database.ref("user_meds/").on("value", (snapshot) => {
           var medTime = thisMed[medInfo];
 
           // from 24hr format to 12hr format
-          var H = +medTime.substr(0, 2);
+          var H = +medTime.toString().substr(0, 2);
           var h = H % 12 || 12;
           var ampm = (H < 12 || H === 24) ? "AM" : "PM";
-          var medTime12 = h + medTime.substr(2, 3) + ampm;
+          var medTime12 = h + medTime.toString().substr(2, 3) + ampm;
 
           // Calculating Medication time - Current Time to set up Alarm
           // Currently only set alarm for the following week
           var dayDif = weekday.indexOf(medInfo) - weekday.indexOf(todayDay); // i.e. Monday - Sunday = 1
-          var hhDif = medTime.substr(0, 2) - curTime.substr(0, 2);
-          var mmDif = medTime.substr(3, 5) - curTime.substr(3, 5);
+          // Getting current time format when before noon is #:##. The following makes it 0#:##, which match time in firebase
+          if (curTime.charAt(1) == ':')
+            curTime = "0" + curTime;
+          var hhDif = medTime.toString().substr(0, 2) - curTime.toString().substr(0, 2);
+          var mmDif = medTime.toString().substr(3, 5) - curTime.toString().substr(3, 5);
 
           // Time difference in milli second
           var alarmInMS = ((dayDif * 24 + hhDif) * 60 + mmDif) * 60000;
@@ -78,14 +81,14 @@ database.ref("user_meds/").on("value", (snapshot) => {
           console.log("Alarm is set in " + dayDif + " days " + hhDif + " HR " + mmDif + " Minutes to notify that " + medName + " needs to be taken at " + medTime12 + ". Text will be sent to " + userPhone + ".");
 
           // After "alarmInMS" milliseconds, sends out a text to remind of taking a medicine
-          setTimeout(function() {
-            client.messages.create({
-                body: 'It is ' + medTime12 + ' now. Take ' + medName + ". Have a nice day!",
-                to: userPhone,
-                from: '+13236010150' // Endgame Number
-              })
-              .then((message) => console.log(message.sid));
-          }, alarmInMS);
+          // setTimeout(function() {
+          //   client.messages.create({
+          //       body: 'It is ' + medTime12 + ' now. Take ' + medName + ". Have a nice day!",
+          //       to: userPhone,
+          //       from: '+13236010150' // Endgame Number
+          //     })
+          //     .then((message) => console.log(message.sid));
+          // }, alarmInMS);
 
           // Once alarm is set, update alarm property so it does not duplicate message
           database.ref("user_meds/" + medName).update({
