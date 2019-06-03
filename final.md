@@ -103,4 +103,4 @@ style.css
 [Medilarm](https://docs.google.com/presentation/d/1J0QwBt-8_NaC1ZSOFMOepTxeFEpRSkRm9UihSf2RCQA/edit?usp=sharing)
 
 ## Video
-https://drive.google.com/a/ucsd.edu/file/d/1GVITjswJqYuJUUBHp1Tbw7dQTuqlkxMm/view?usp=sharing
+[Medilarm Video](https://drive.google.com/a/ucsd.edu/file/d/1GVITjswJqYuJUUBHp1Tbw7dQTuqlkxMm/view?usp=sharing)
