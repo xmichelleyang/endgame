@@ -14,9 +14,10 @@
   "dependencies": {
     "express": "3.x",
     "express3-handlebars": "*",
+    "firebase": "^6.1.0",
+    "firebase-admin": "*",
     "mongodb": "*",
     "mongoose": "*",
-    "firebase-admin": "*",
     "twilio": "*"
   },
   "engines": {
