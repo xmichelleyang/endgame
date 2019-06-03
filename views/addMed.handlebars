@@ -9,84 +9,111 @@
 <body>
 	<div class="center-container">
 		<h1 class="first">Add Medicine</h1>
-		<div class="card bg-light mb-3">
-			<h5 class="card-header">Name of Medication</h5>
-			<div class="card-body">
-				<input class="card-text form-control" id="medNameBox" placeholder="Medication Name" required>
-			</div>
-		</div>
 
-		<div class="card bg-light mb-3">
-			<h5 class="card-header">Description</h5>
-			<div class="card-body">
-				<input class="card-text big-text-box form-control " id="medDescBox" />
-				<hr />
-				<button type="button" id="autofillMed">Auto-import Description</button>
-			</div>
-		</div>
-
-		<div class="card bg-light mb-3">
-			<h5 class="card-header">Side Effects</h5>
-			<div class="card-body">
-				<input class="card-text big-text-box form-control " id="medSideEffectsBox" />
-			</div>
-		</div>
-
-		<div class="card bg-light mb-3">
-			<h5 class="card-header">Dosage</h5>
-			<div class="card-body">
-				<input class="card-text form-control " id="medDosageBox" required />
-			</div>
-		</div>
-
-
-		<!-- <div class="addMedContainer"> -->
+		<div class="main-content">
 			<div class="card bg-light mb-3">
-				<h5 class="card-header">Time</h5>
-				<!-- <script id="handlebars-demo" type="text/x-handlebars-template"> -->
+				<h5 class="card-header">Name of Medication</h5>
 				<div class="card-body">
-					<div class="weekday-header">
-						<h6>Monday</h6>
-						<input type="time" id="medTimeMon" value="12:00">
-						<button id="addToMon" style="margin-bottom: 10%;">ADD</button>
-
-						<h6>Tuesday</h6>
-						<input type="time" id="medTimeTue" value="12:00">
-						<button id="addToTue" style="margin-bottom: 10%;">ADD</button>
-
-						<h6>Wednesday</h6>
-						<input type="time" id="medTimeWed" value="12:00">
-						<button id="addToWed" style="margin-bottom: 10%;">ADD</button>
-
-						<h6>Thursday</h6>
-						<input type="time" id="medTimeThu" value="12:00">
-						<button id="addToThu" style="margin-bottom: 10%;">ADD</button>
-
-						<h6>Friday</h6>
-						<input type="time" id="medTimeFri" value="12:00">
-						<button id="addToFri" style="margin-bottom: 10%;">ADD</button>
-
-						<h6>Saturday</h6>
-						<input type="time" id="medTimeSat" value="12:00">
-						<button id="addToSat" style="margin-bottom: 10%;">ADD</button>
-
-						<h6>Sunday</h6>
-						<input type="time" id="medTimeSun" value="12:00">
-						<button id="addToSun">ADD</button>
-					</div> <br>
+					<input class="card-text form-control" id="medNameBox" placeholder="Medication Name" required>
 				</div>
 			</div>
 
-			<!-- TODO Make a display of what meds to be added-->
-			<!-- <div class="card bg-light mb-3 medToAdd">
-				<h5 class="card-header">To Be Added</h5>
+			<div class="card bg-light mb-3">
+				<h5 class="card-header">Description</h5>
 				<div class="card-body">
-					<div class="weekday-header">
-					</div> <br>
+					<input class="card-text big-text-box form-control " id="medDescBox" />
+					<hr />
+					<button type="button" id="autofillMed">Auto-import Description</button>
 				</div>
-			</div> -->
+			</div>
 
-		<!-- </div> -->
+			<div class="card bg-light mb-3">
+				<h5 class="card-header">Side Effects</h5>
+				<div class="card-body">
+					<input class="card-text big-text-box form-control " id="medSideEffectsBox" />
+				</div>
+			</div>
+
+			<div class="card bg-light mb-3">
+				<h5 class="card-header">Dosage</h5>
+				<div class="card-body">
+					<input class="card-text form-control " id="medDosageBox" required />
+				</div>
+			</div>
+
+
+			<!-- <div class="addMedContainer"> -->
+				<div class="card bg-light mb-3">
+					<h5 class="card-header">Time</h5>
+					<!-- <script id="handlebars-demo" type="text/x-handlebars-template"> -->
+					<div class="card-body">
+						<div class="weekday-header">
+							<h5>Monday</h5>
+							<div id="monTimes"> </div>
+							<div class="one-line">
+								<input type="time" id="medTimeMon" class="form-control in-one-line">
+								<button id="addToMon" class="btn btn-primary  in-one-line" style="margin-bottom: 10px;">ADD</button>
+							</div>
+
+							<hr>
+							<h5>Tuesday</h5>
+							<div id="tueTimes"> </div>
+							<div class="one-line">
+								<input type="time" id="medTimeTue" class="form-control in-one-line">
+								<button id="addToTue" class="btn btn-primary in-one-line" style="margin-bottom: 10px;">ADD</button>
+							</div>
+
+							<hr>
+							<h5>Wednesday</h5>
+							<div id="wedTimes"> </div>
+							<div class="one-line">
+								<input type="time" id="medTimeWed" class="form-control in-one-line">
+								<button id="addToWed" class="btn btn-primary in-one-line" style="margin-bottom: 10px;">ADD</button>
+							</div>
+
+							<hr>
+							<h5>Thursday</h5>
+							<div id="thuTimes"> </div>
+							<div class="one-line">
+								<input type="time" id="medTimeThu" class="form-control in-one-line">
+								<button id="addToThu" class="btn btn-primary in-one-line" style="margin-bottom: 10px;">ADD</button>
+							</div>
+
+							<hr>
+							<h5>Friday</h5>
+							<div id="friTimes"> </div>
+							<div class="one-line">
+								<input type="time" id="medTimeFri" class="form-control in-one-line">
+								<button id="addToFri" class="btn btn-primary in-one-line" style="margin-bottom: 10px;">ADD</button>
+							</div>
+
+							<hr>
+							<h5>Saturday</h5>
+							<div id="satTimes"> </div>
+							<div class="one-line">
+								<input type="time" id="medTimeSat" class="form-control in-one-line">
+								<button id="addToSat" class="btn btn-primary in-one-line" style="margin-bottom: 10px;">ADD</button>
+							</div>
+
+							<hr>
+							<h5>Sunday</h5>
+							<div id="sunTimes"> </div>
+							<div class="one-line">
+								<input type="time" id="medTimeSun" class="form-control in-one-line">
+								<button id="addToSun" class="btn btn-primary in-one-line" style="margin-bottom: 10px;">ADD</button>
+							</div>
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+			
+			<div class="center-container">
+				<button id="addAll" class="btn btn-primary">ADD</button>
+			</div>
+
 	</div>
 
 	{{>footer}}

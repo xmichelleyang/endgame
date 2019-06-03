@@ -158,7 +158,7 @@ $(document).ready(() => {
       $("#descDesc").html(`<div class="input-group">
         <div class="input-group-prepend">
         </div>
-        <input id="descInput" class="form-control" value="${prev}"></input>
+        <input id="descInput" class="form-control input-lg" value="${prev}"></input>
       </div>`);
 
       // User clicks no
