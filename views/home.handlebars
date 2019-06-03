@@ -1,4 +1,6 @@
-<!-- Homepage that displays today's date and medications to take -->
+<!-- Description: home.handlebars displays a user's mediciation for the current date,
+		 along with a time for consumption.
+-->
 
 <html>
 <head>
@@ -14,13 +16,10 @@
 			Medication
 		</h1>
 
-
 		<!-- <h3> Medications </h3> -->
 		<div id="med-today" class="main-content"> </div>
 	</div>
-
-	<!-- Handle a case for other days than today -->
-	<div id="day" style="display: none;">{{day}}</div>
+	
 	{{>footer}}
 </body>
 

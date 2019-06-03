@@ -1,4 +1,11 @@
-// Javscript Helper file for home.handlebar
+/* Description: home.js is the JavaScript helper file for home.handlebars.
+ * It loads the user's medicine for any given day, which is determined
+ * by either the overview page, or if the user clicks the "today" button.
+ * home.js primarily makes requests to Google Firebase and retrieves the
+ * necessary data.
+ */
+
+/************************************************************************/
 
 $(document).ready(() => {
   // Your web app's Firebase configuration

@@ -1,7 +1,9 @@
-
-/**
- * Module dependencies.
+/* Description: app.js takes care of necesary module dependencies, and sets
+ * up the basic environments, ports and routes necessary for the application
+ * to function correctly.
  */
+
+/************************************************************************/
 
 const express = require('express');
 var http = require('http');

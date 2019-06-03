@@ -1,3 +1,11 @@
+/* Description: profile.js is the JavaScript Helper file for profile.handlebars.
+ * It displays all of a user's information, including the entirety of medication
+ * that the user needs to take, and allows the user to edit basic information,
+ * such as the username, phone number, and email address.
+ */
+
+/************************************************************************/
+
 $(document).ready (() => {
 
     // Your web app's Firebase configuration
@@ -62,9 +70,6 @@ $(document).ready (() => {
 			}
 		});
 
-
-
-
     // Update user's information
     $("#userNameClick").click(() => {
       var change = prompt('What would you like to change your name to?');
@@ -76,7 +81,6 @@ $(document).ready (() => {
         name: change
       });
     });
-
 
     $("#phoneClick").click(() => {
       var change = prompt('What would you like to change your phone number to?');
@@ -103,4 +107,4 @@ $(document).ready (() => {
 
     });
 
-	});
+});

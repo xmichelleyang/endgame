@@ -42,6 +42,9 @@ home.handlebars
 index.handlebars  
   - Displays log-in page, with sign-up page option  
   
+day.handlebars
+  - Displays placeholder information in case of incorrect date
+  
 medInfo.handlebars  
   - Displays information for individual medication  
   
@@ -53,6 +56,12 @@ profile.handlebars
   
 signup.handlebars  
   - Displays sign-up page  
+  
+header.handlebars
+  - Partial that includes all necessary code for the header
+  
+footer.handlebars
+  - Partial that includes all necessary code for the footer
 
 ### HTML Files
 header.html

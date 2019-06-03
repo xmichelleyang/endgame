@@ -1,5 +1,12 @@
-$(document).ready(() => {
+/* Description: medInfo.js is the JavaScript helper file for medInfo.handlebars.
+ * Its primary purpose is to display all information associated with a certain
+ * medicine. This requires information retrieval from the database, and
+ * includes several onClicks that allow for data modification by the user.
+ */
 
+/************************************************************************/
+
+$(document).ready(() => {
 
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -19,8 +26,6 @@ $(document).ready(() => {
 
   const medName = $("#medName").text();
   console.log(medName);
-
-
 
   // Loading the data into the cards
 	database.ref("user_meds/" + medName).on("value", (snapshot) => {

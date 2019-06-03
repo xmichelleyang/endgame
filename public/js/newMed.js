@@ -1,7 +1,14 @@
-// Javscript Helper file for addMed.handlebar
-// It reads user input and update to firebase.
+/* Description: newMed.js is the JavaScript Helper file for addMed.handlebars.
+ * Its purpose is to allow the user to upload a new medicine, complete with
+ * several fields (i.e. description, dosage, time taken and side effects)
+ * to the database. This requires newMed.js to handle several onClicks,
+ * to edit medicinal information as well as add timesets for dosage.
+ */
+
+/************************************************************************/
 
 $(document).ready(() => {
+
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCNAO-j9z0dEE1Ko3f4icW96ze06beCHvw",
@@ -182,10 +189,7 @@ $(document).ready(() => {
     window.location ="/home";
   });
 
-
 });
-
-
 
 function checkValidity(n, d) {
   return (n == "") || (d == "");
