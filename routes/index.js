@@ -90,7 +90,7 @@ database.ref("user_meds/").on("value", (snapshot) => {
               .then((message) => console.log(message.sid));
           }, alarmInMS);
 
-          Once alarm is set, update alarm property so it does not duplicate message
+          // Once alarm is set, update alarm property so it does not duplicate message
           database.ref("user_meds/" + medName).update({
             alarm: true
           });
