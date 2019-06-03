@@ -3,8 +3,6 @@
 
 # Project Final Milestone
 
-Improvements
-
 ## Team Members and Contributions
 
 ### Daniel Gwag
