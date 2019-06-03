@@ -53,10 +53,10 @@ $(document).ready(() => {
                 // Time of Medication
                 var medTime = snapshot.val();
                 // Changing it from 24hr to 12hr format
-                var H = +medTime.substr(0, 2);
+                var H = +medTime.toString().substr(0, 2);
                 var h = H % 12 || 12;
                 var ampm = (H < 12 || H === 24) ? "AM" : "PM";
-                var medTime12 = h + medTime.substr(2, 3) + ampm;
+                var medTime12 = h + medTime.toString().substr(2, 3) + ampm;
 
                 // Applying to Home Page
                 $("#med-today").append(`

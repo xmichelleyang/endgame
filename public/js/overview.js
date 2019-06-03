@@ -30,7 +30,6 @@ $(document).ready(() => {
             if (sched === "Monday") {
               database.ref("user_meds/" + med + "/" + sched).on("value", (snapshot) => {
                 const medTime = snapshot.val();
-                console.log(medTime);
                 $("#med-mon").append(`\n` + med + ` : ` + medTime);
               })
             }

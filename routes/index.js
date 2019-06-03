@@ -79,7 +79,6 @@ database.ref("user_meds/").on("value", (snapshot) => {
           // Handle a case that alarmInMS is negative, so a whole week needs to be added
           alarmInMS = (alarmInMS < 0) ? alarmInMS += (7 * 24 * 60 * 60 * 1000) : alarmInMS;
           console.log("Alarm is set in " + dayDif + " days " + hhDif + " HR " + mmDif + " Minutes to notify that " + medName + " needs to be taken at " + medTime12 + ". Text will be sent to " + userPhone + ".");
-
           // After "alarmInMS" milliseconds, sends out a text to remind of taking a medicine
           setTimeout(function() {
             client.messages.create({
