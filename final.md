@@ -31,7 +31,7 @@ Improvements
 
 ## List of all Source Code Files
 
-#### Handlebar Files
+### Handlebar Files
 404.handlebars  
   - Displays a "Page not found" message  
   
@@ -56,14 +56,14 @@ profile.handlebars
 signup.handlebars  
   - Displays sign-up page  
 
-#### HTML Files
+### HTML Files
 header.html
  - Outlines header information and imports necessary .css and .js files
 
 footer.html
  - Includes navbar html for efficient inclusion
  
-#### JavaScript Files
+### JavaScript Files
 home.js
  - JavaScript functionality for the home page, displaying medicine for a given day
  
@@ -88,6 +88,6 @@ app.js
 index.js
  - Handles main routing functionality as well as FireBase configuration
  
-#### CSS Files
+### CSS Files
 style.css
  - Primary CSS formatting for the majority of the website, including backgrounds, buttons, and cards
