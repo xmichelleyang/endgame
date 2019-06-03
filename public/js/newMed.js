@@ -37,7 +37,6 @@ $(document).ready(() => {
             break;
           }
         }
-
         if ($("#medDescBox").val() == "") {
           alert("Sorry, we don't have the information for this medicine.");
         }
@@ -45,169 +44,149 @@ $(document).ready(() => {
     }
   })
 
-  // When add to certain date button is clicked with its time,
-  // following function updates accordingly
+  var times = new Object();
+  times["Monday"] = new Set();
+  times["Tuesday"] = new Set();
+  times["Wednesday"] = new Set();
+  times["Thursday"] = new Set();
+  times["Friday"] = new Set();
+  times["Sunday"] = new Set();
+  times["Saturday"] = new Set();
+
+  function addRow(id, time, day) {
+    time = time.trim();
+    console.log("trying to add");
+    $("#" + id).append(`<div id=${time} style="padding:7px;"> <div class="left-align"> ${time} </div>  <div class="right-align" style="margin-right:10px;"> <ion-icon name="close"></ion-icon> </div><br> </div>`);
+    $('.right-align').bind('click', function() { removeRow($(this)) });
+    times[day].add(time);
+    console.log(times);
+
+    function removeRow(button) {
+      console.log("oooo");
+      var row = button.parent();
+      var name = row.attr("id");
+      console.log("row: ", row)
+      console.log("name: ", name);
+      if( name == time && confirm("Do you want to delete: " + time)) {
+        console.log("trying to remove #", time)
+        row.remove();
+        times[day].delete(time)
+      }
+      console.log(times);
+    }
+  }
+
   $("#addToMon").click(() => {
-    // Get user input
-    const name = $("#medNameBox").val();
-    const desc = $("#medDescBox").val();
-    const side_effects = $("#medSideEffectsBox").val();
-    const dosage = $("#medDosageBox").val();
-    // check validity
-    if (checkValidity(name, dosage)) {
-      alert("Insert name and dosage");
-      return;
-    } else {
-      const day = "Monday";
-      var time = $("#medTimeMon").val();
-      // update to firebase
-      if (confirm("Would you like to add " + name + " to " + day + " at " + time + "\?")) {
-        database.ref("user_meds/" + name).update({
-          Monday: time,
-          name: name,
-          desc: desc,
-          side_effects: side_effects,
-          dosage: dosage,
-          alarm: false
-        });
-      }
+    const day = "Monday";
+    var time = $("#medTimeMon").val();
+
+   if (times[day].has(time)) {
+      alert("This time already exists");
+    }
+    else {
+      addRow("monTimes", time, day);
     }
   })
+
   $("#addToTue").click(() => {
-    const name = $("#medNameBox").val();
-    const desc = $("#medDescBox").val();
-    const side_effects = $("#medSideEffectsBox").val();
-    const dosage = $("#medDosageBox").val();
-    if (checkValidity(name, dosage)) {
-      alert("Insert name and dosage");
-      return;
-    } else {
-      var time = $("#medTimeTue").val();
-      if (confirm("Would you like to add " + name + " to Tuesday at " + time + "\?")) {
-        database.ref("user_meds/" + name).update({
-          Tuesday: time,
-          name: name,
-          desc: desc,
-          side_effects: side_effects,
-          dosage: dosage,
-          alarm: false
-        });
-      }
+    const day = "Tuesday";
+    var time = $("#medTimeTue").val();
+    if (times[day].has(time)) {
+      alert("This time already exists");
     }
-  })
+    else {
+      addRow("tueTimes", time, day);
+    }
+  });
+
   $("#addToWed").click(() => {
-    const name = $("#medNameBox").val();
-    const desc = $("#medDescBox").val();
-    const side_effects = $("#medSideEffectsBox").val();
-    const dosage = $("#medDosageBox").val();
-    if (checkValidity(name, dosage)) {
-      alert("Insert name and dosage");
-      return;
-    } else {
-      var time = $("#medTimeWed").val();
-      if (confirm("Would you like to add " + name + " to Wednesday at " + time + "\?")) {
-        database.ref("user_meds/" + name).update({
-          Wednesday: time,
-          name: name,
-          desc: desc,
-          side_effects: side_effects,
-          dosage: dosage,
-          alarm: false
-        });
-      }
+    const day = "Wednesday";
+    var time = $("#medTimeWed").val();
+    if (times[day].has(time)) {
+      alert("This time already exists");
     }
-  })
+    else {
+      addRow("wedTimes", time, day);
+    }
+  });
+
   $("#addToThu").click(() => {
-    const name = $("#medNameBox").val();
-    const desc = $("#medDescBox").val();
-    const side_effects = $("#medSideEffectsBox").val();
-    const dosage = $("#medDosageBox").val();
-    if (checkValidity(name, dosage)) {
-      alert("Insert name and dosage");
-      return;
-    } else {
-      var time = $("#medTimeThu").val();
-      if (confirm("Would you like to add " + name + " to Thursday at " + time + "\?")) {
-        database.ref("user_meds/" + name).update({
-          Thursday: time,
-          name: name,
-          desc: desc,
-          side_effects: side_effects,
-          dosage: dosage,
-          alarm: false
-        });
-      }
+    const day = "Thursday";
+    var time = $("#medTimeThu").val();
+    if (times[day].has(time)) {
+      alert("This time already exists");
     }
-  })
+    else {
+      addRow("thuTimes", time, day);
+    }
+  });
+
   $("#addToFri").click(() => {
-    const name = $("#medNameBox").val();
-    const desc = $("#medDescBox").val();
-    const side_effects = $("#medSideEffectsBox").val();
-    const dosage = $("#medDosageBox").val();
-    if (checkValidity(name, dosage)) {
-      alert("Insert name and dosage");
-      return;
-    } else {
-      var time = $("#medTimeFri").val();
-      if (confirm("Would you like to add " + name + " to Friday at " + time + "\?")) {
-        database.ref("user_meds/" + name).update({
-          Friday: time,
-          name: name,
-          desc: desc,
-          side_effects: side_effects,
-          dosage: dosage,
-          alarm: false
-        });
-      }
+    const day = "Friday";
+    var time = $("#medTimeFri").val();
+    if (times[day].has(time)) {
+      alert("This time already exists");
     }
-  })
+    else {
+      addRow("friTimes", time, day);
+    }
+  });
+
   $("#addToSat").click(() => {
-    const name = $("#medNameBox").val();
-    const desc = $("#medDescBox").val();
-    const side_effects = $("#medSideEffectsBox").val();
-    const dosage = $("#medDosageBox").val();
-    if (checkValidity(name, dosage)) {
-      alert("Insert name and dosage");
-      return;
-    } else {
-      var time = $("#medTimeSat").val();
-      if (confirm("Would you like to add " + name + " to Saturday at " + time + "\?")) {
-        database.ref("user_meds/" + name).update({
-          Saturday: time,
-          name: name,
-          desc: desc,
-          side_effects: side_effects,
-          dosage: dosage,
-          alarm: false
-        });
-      }
+    const day = "Saturday";
+    var time = $("#medTimeSat").val();
+    if (times[day].has(time)) {
+      alert("This time already exists");
     }
-  })
+    else {
+      addRow("satTimes", time, day);
+    }
+  });
+
   $("#addToSun").click(() => {
+    const day = "Sunday";
+    var time = $("#medTimeSun").val();
+    if (times[day].has(time)) {
+      alert("This time already exists");
+    }
+    else {
+      addRow("sunTimes", time, day);
+    }
+  });
+
+  $("#addAll").click(() => {
+    console.log("clicked");
     const name = $("#medNameBox").val();
     const desc = $("#medDescBox").val();
     const side_effects = $("#medSideEffectsBox").val();
     const dosage = $("#medDosageBox").val();
-    if (checkValidity(name, dosage)) {
-      alert("Insert name and dosage");
-      return;
-    } else {
-      var time = $("#medTimeSun").val();
-      if (confirm("Would you like to add " + name + " to Sunday at " + time + "\?")) {
-        database.ref("user_meds/" + name).update({
-          Sunday: time,
-          name: name,
-          desc: desc,
-          side_effects: side_effects,
-          dosage: dosage,
-          alarm: false
-        });
-      }
+    console.log("times", times);
+    console.log("times[Mon]", times["Monday"]);
+
+    if (confirm("Would you like to add " + name + " to your medications?")) {
+      database.ref("user_meds/" + name).update({
+        name: name,
+        desc: desc,
+        side_effects: side_effects,
+        dosage: dosage,
+        Monday: Array.from(times["Monday"]),
+        Tuesday: Array.from(times["Tuesday"]),
+        Wednesday: Array.from(times["Wednesday"]),
+        Thursday: Array.from(times["Thursday"]),
+        Friday: Array.from(times["Friday"]),
+        Sunday: Array.from(times["Sunday"]),
+        Saturday: Array.from(times["Saturday"])
+      });
     }
-  })
+
+    window.location ="/home";
+  });
+
+
 });
 
-// Function that checks if name and dosage is not empty
+
+
 function checkValidity(n, d) {
   return (n == "") || (d == "");
 }

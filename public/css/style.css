@@ -134,6 +134,17 @@ img.card {
   padding-right: 20%;
 }
 
+.one-line {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.in-one-line {
+  margin: 10px;
+}
+
 #addTo {
   margin-bottom: 10%;
 }

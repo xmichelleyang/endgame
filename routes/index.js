@@ -80,17 +80,17 @@ database.ref("user_meds/").on("value", (snapshot) => {
           alarmInMS = (alarmInMS < 0) ? alarmInMS += (7 * 24 * 60 * 60 * 1000) : alarmInMS;
           console.log("Alarm is set in " + dayDif + " days " + hhDif + " HR " + mmDif + " Minutes to notify that " + medName + " needs to be taken at " + medTime12 + ". Text will be sent to " + userPhone + ".");
 
-          // After "alarmInMS" milliseconds, sends out a text to remind of taking a medicine
-          // setTimeout(function() {
-          //   client.messages.create({
-          //       body: 'It is ' + medTime12 + ' now. Take ' + medName + ". Have a nice day!",
-          //       to: userPhone,
-          //       from: '+13236010150' // Endgame Number
-          //     })
-          //     .then((message) => console.log(message.sid));
-          // }, alarmInMS);
+          After "alarmInMS" milliseconds, sends out a text to remind of taking a medicine
+          setTimeout(function() {
+            client.messages.create({
+                body: 'It is ' + medTime12 + ' now. Take ' + medName + ". Have a nice day!",
+                to: userPhone,
+                from: '+13236010150' // Endgame Number
+              })
+              .then((message) => console.log(message.sid));
+          }, alarmInMS);
 
-          // Once alarm is set, update alarm property so it does not duplicate message
+          Once alarm is set, update alarm property so it does not duplicate message
           database.ref("user_meds/" + medName).update({
             alarm: true
           });
