@@ -9,6 +9,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.logo {
+  padding: 35px;
+}
+
 /* Page Header */
 h1 {
   padding: 30px;
@@ -179,7 +183,7 @@ ion-icon {
 
 
 .btn-secondary{
-  background-color:#2E4595 !important;
+  background-color:#2E4595;
   border: none;
   color: white;
   padding: 16px 32px;
@@ -193,7 +197,6 @@ ion-icon {
   cursor: pointer;
 }
 
-}
 .navButton{
   background-color: white; 
   color: black; 
@@ -201,7 +204,7 @@ ion-icon {
 }
 
 .navButton:hover{
-  background-color: #4CAF50;
+  background-color: #000000;
   color: white;
 }
 
