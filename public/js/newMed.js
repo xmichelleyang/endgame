@@ -1,3 +1,6 @@
+// Javscript Helper file for addMed.handlebar
+// It reads user input and update to firebase.
+
 $(document).ready(() => {
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -9,12 +12,13 @@ $(document).ready(() => {
     messagingSenderId: "772708854408",
     appId: "1:772708854408:web:3f9503f52b026c3e"
   };
-
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   // Define it as database
   const database = firebase.database();
 
+  var d = new Date();
+  var curTime = d.getHours() + ":" + d.getMinutes();
 
   // David - Autofilling Description from database
   $("#autofillMed").click(() => {
@@ -41,32 +45,34 @@ $(document).ready(() => {
     }
   })
 
+  // When add to certain date button is clicked with its time,
+  // following function updates accordingly
   $("#addToMon").click(() => {
+    // Get user input
     const name = $("#medNameBox").val();
     const desc = $("#medDescBox").val();
     const side_effects = $("#medSideEffectsBox").val();
     const dosage = $("#medDosageBox").val();
+    // check validity
     if (checkValidity(name, dosage)) {
       alert("Insert name and dosage");
       return;
     } else {
       const day = "Monday";
       var time = $("#medTimeMon").val();
+      // update to firebase
       if (confirm("Would you like to add " + name + " to " + day + " at " + time + "\?")) {
         database.ref("user_meds/" + name).update({
           Monday: time,
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
   })
-
-
-
-
   $("#addToTue").click(() => {
     const name = $("#medNameBox").val();
     const desc = $("#medDescBox").val();
@@ -83,12 +89,12 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
   })
-
   $("#addToWed").click(() => {
     const name = $("#medNameBox").val();
     const desc = $("#medDescBox").val();
@@ -105,12 +111,12 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
   })
-
   $("#addToThu").click(() => {
     const name = $("#medNameBox").val();
     const desc = $("#medDescBox").val();
@@ -127,12 +133,12 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
   })
-
   $("#addToFri").click(() => {
     const name = $("#medNameBox").val();
     const desc = $("#medDescBox").val();
@@ -149,12 +155,12 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
   })
-
   $("#addToSat").click(() => {
     const name = $("#medNameBox").val();
     const desc = $("#medDescBox").val();
@@ -171,12 +177,12 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
   })
-
   $("#addToSun").click(() => {
     const name = $("#medNameBox").val();
     const desc = $("#medDescBox").val();
@@ -193,24 +199,15 @@ $(document).ready(() => {
           name: name,
           desc: desc,
           side_effects: side_effects,
-          dosage: dosage
+          dosage: dosage,
+          alarm: false
         });
       }
     }
   })
 });
 
+// Function that checks if name and dosage is not empty
 function checkValidity(n, d) {
   return (n == "") || (d == "");
-}
-
-function toFB(database, name, time, desc, side_effects, dosage) {
-  // console.log(name);
-  database.ref("user_meds/" + name).set({
-    Tuesday: time,
-    name: name,
-    desc: desc,
-    side_effects: side_effects,
-    dosage: dosage
-  });
 }

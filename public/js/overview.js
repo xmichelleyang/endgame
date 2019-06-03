@@ -1,15 +1,6 @@
-var cal = {
-  "Mon": [],
-  "Tue": [],
-  "Wed": [],
-  "Thu": [],
-  "Fri": [],
-  "Sat": [],
-  "Sun": [],
-};
+// Javscript Helper file for overview.handlebar
 
 $(document).ready(() => {
-
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCNAO-j9z0dEE1Ko3f4icW96ze06beCHvw",
@@ -20,20 +11,22 @@ $(document).ready(() => {
     messagingSenderId: "772708854408",
     appId: "1:772708854408:web:3f9503f52b026c3e"
   };
-
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   // Define it as database
   const database = firebase.database();
 
+  // Access Firebase
   database.ref("user_meds/").on("value", (snapshot) => {
     const allMedications = snapshot.val();
     if (allMedications) {
       $("#user-info").html("");
       Object.keys(allMedications).forEach((med) => {
         database.ref("user_meds/" + med).on("value", (snapshot) => { //
-          var medSchedule = snapshot.val();
-          Object.keys(medSchedule).forEach((sched) => {
+          var medName = snapshot.val();
+          // Iterate through all medicines
+          Object.keys(medName).forEach((sched) => {
+            // Check cases for all dates and apply to handlebar file
             if (sched === "Monday") {
               database.ref("user_meds/" + med + "/" + sched).on("value", (snapshot) => {
                 const medTime = snapshot.val();
@@ -75,7 +68,6 @@ $(document).ready(() => {
               database.ref("user_meds/" + med + "/" + sched).on("value", (snapshot) => {
                 const medTime = snapshot.val();
                 $("#med-sun").append(`\n` + med + ` : ` + medTime);
-
               })
             }
           })
@@ -86,7 +78,6 @@ $(document).ready(() => {
 
   document.addEventListener('DOMContentLoaded', function() {
     $("#med-today").append("aa");
-   // your code here
   }, false);
 
   // David - Pressing Pill Button

@@ -1,7 +1,6 @@
+// Javscript Helper file for home.handlebar
+
 $(document).ready(() => {
-
-
-
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCNAO-j9z0dEE1Ko3f4icW96ze06beCHvw",
@@ -12,17 +11,16 @@ $(document).ready(() => {
     messagingSenderId: "772708854408",
     appId: "1:772708854408:web:3f9503f52b026c3e"
   };
-
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   // Define it as database
   const database = firebase.database();
 
+// Helper function to get today's date (i.e. Sunday)
   Date.prototype.getWeekDay = function() {
     var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return weekday[this.getDay()];
   }
-
   var d = new Date();
   var day = $("#day").text();
   if (!day || day == "") {
@@ -31,16 +29,20 @@ $(document).ready(() => {
   var curTime = d.getHours() + ":" + d.getMinutes();
   $("#today-date").append(day);
 
+  // Access Firebase to retrieve medication info
   database.ref("user_meds/").on("value", (snapshot) => {
     const allMedications = snapshot.val();
+    // If there is any medication
     if (allMedications) {
       $("#user-info").html("");
       Object.keys(allMedications).forEach((med) => {
-        database.ref("user_meds/" + med).on("value", (snapshot) => { //
-          var medSchedule = snapshot.val();
-          var dosage = medSchedule.dosage;
-          var side_effects = medSchedule.side_effects;
-          Object.keys(medSchedule).forEach((sched) => {
+        database.ref("user_meds/" + med).on("value", (snapshot) => {
+          // Get the attributes of this medication
+          var medName = snapshot.val();
+          var dosage = medName.dosage;
+          var side_effects = medName.side_effects;
+          Object.keys(medName).forEach((sched) => {
+            // If medication needs to be taken today
             if (sched === day) {
               var time = snapshot.key;
               if (dosage == null)
@@ -50,36 +52,15 @@ $(document).ready(() => {
               database.ref("user_meds/" + med + "/" + sched).on("value", (snapshot) => {
                 // Time of Medication
                 var medTime = snapshot.val();
-
                 // Changing it from 24hr to 12hr format
                 var H = +medTime.substr(0, 2);
                 var h = H % 12 || 12;
                 var ampm = (H < 12 || H === 24) ? "AM" : "PM";
                 var medTime12 = h + medTime.substr(2, 3) + ampm;
 
-                // Setting up Alarm
-                var diff = curTime - medTime;
-                var hhDif = medTime.substr(0, 2) - curTime.substr(0, 2);
-                // TODO: Add conditional  (If alarm already sent, dont send again)
-                if (hhDif >= 0) { // If upcoming
-                  var mmDif = medTime.substr(3, 5) - curTime.substr(3, 5);
-                  var alarmInMS = (hhDif * 60 + mmDif) * 60000;
-
-                  if (mmDif >= 0) {
-                    console.log("Alarm to be sent in " + alarmInMS + "ms");
-                    let alarmMSG = "IT IS " + medTime12 + "!! TAKE " + med + " NOW!!!!!!!";
-
-                    // TODO: Use Twilio here to send scheduled msg at the time
-                    setTimeout(function() {
-                      // return alert(alarmMSG);
-                    }, alarmInMS);
-                  }
-                }
-
                 // Applying to Home Page
                 $("#med-today").append(`
               		<div class="card bg-light mb-3" onclick="location.href='/medInfo/${med}'">
-
               			<h5 class="card-header"> ${med} <span style="float: right;"> ${medTime12} </span></h5>
               			<div class="card-body">
                     Dosage: ${dosage} </br>
@@ -89,14 +70,9 @@ $(document).ready(() => {
                 `);
               })
             }
-
           })
         });
       })
     }
   });
-
-
-
-
 });
