@@ -1,9 +1,10 @@
-/*
-  index.js
-    It sets up Twillio and local firebase
-    It sets up scheduled SMS to remind user of taking medications at designated time.
-    It renders handlebar files to show on screen.
+/* Description: index.js composes the primary functionality of routing.
+ * In addition, it helps to set up Firebase and Twilio, renders the necessary
+ * .handlebars files according to user actions, and sets up scheduled SMS's
+ * which remind users to take their medicine.
  */
+
+/************************************************************************/
 
 // Set Up Twilio
 var twilio = require('twilio');

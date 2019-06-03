@@ -1,6 +1,14 @@
-// Javscript Helper file for overview.handlebar
+/* Description: overview.js is the JavaScript Helper file for overview.handlebars.
+ * It helps with the rendering of the overview page, specifically with displaying
+ * all of a user's necessary medication. It also handles partial re-routing when
+ * a certain weekday is pressed, displaying medicinal information corresponding
+ * to the correct date.
+ */
+
+/************************************************************************/
 
 $(document).ready(() => {
+  
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCNAO-j9z0dEE1Ko3f4icW96ze06beCHvw",
