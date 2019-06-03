@@ -1,18 +1,17 @@
-<html>
+<!-- Homepage that displays today's date and medications to take -->
 
+<html>
 <head>
 	{{>header}}
 	<script src="/js/home.js"></script>
 </head>
-
 <body>
 
 	<div class="center-container">
 		<h1>
-			<!-- <span id="yes-date"> </span> -->
-			<span id="today-date"></span>
+			<!-- Call today's date from home.js -->
+			<span id="today-date"> </span>
 			Medication
-			<!-- <span id="tom-date"> </span> -->
 		</h1>
 
 
@@ -20,6 +19,7 @@
 		<div id="med-today" class="main-content"> </div>
 	</div>
 
+	<!-- Handle a case for other days than today -->
 	<div id="day" style="display: none;">{{day}}</div>
 	{{>footer}}
 </body>

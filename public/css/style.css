@@ -9,6 +9,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.logo {
+  padding: 35px;
+}
+
 /* Page Header */
 h1 {
   padding: 30px;
@@ -50,6 +54,15 @@ h2 {
   background-color: #FCF0FF;
   color:#2E4595;
 }
+
+.homeImg {
+  width: 9%;
+  position: absolute;
+  right: 25%;
+  top: 7%;
+  /* bottom: 5%; */
+}
+
 
 /* *************************************************************** */
 
@@ -190,7 +203,7 @@ ion-icon {
 
 
 .btn-secondary{
-  background-color:#2E4595 !important;
+  background-color:#2E4595;
   border: none;
   color: white;
   padding: 16px 32px;
@@ -204,7 +217,6 @@ ion-icon {
   cursor: pointer;
 }
 
-}
 .navButton{
   background-color: white;
   color: black;
@@ -212,6 +224,6 @@ ion-icon {
 }
 
 .navButton:hover{
-  background-color: #4CAF50;
+  background-color: #000000;
   color: white;
 }

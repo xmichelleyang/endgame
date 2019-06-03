@@ -1,3 +1,6 @@
+// Javscript Helper file for addMed.handlebar
+// It reads user input and update to firebase.
+
 $(document).ready(() => {
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -9,12 +12,13 @@ $(document).ready(() => {
     messagingSenderId: "772708854408",
     appId: "1:772708854408:web:3f9503f52b026c3e"
   };
-
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   // Define it as database
   const database = firebase.database();
 
+  var d = new Date();
+  var curTime = d.getHours() + ":" + d.getMinutes();
 
   // David - Autofilling Description from database
   $("#autofillMed").click(() => {

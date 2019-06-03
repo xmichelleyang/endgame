@@ -1,19 +1,21 @@
-<html>
+<!-- Index Page where user can login or Sign up -->
 
+<html>
 <head>
 	{{>header}}
 </head>
 
 <body>
 	<div class="center-container">
-		<h1>Medilarm</h1>
+		<h1><div><img src="images/logo.png" width="350"></div>
+</h1>
 		<h2>Never skip a pill again</h2>
 		<div class="login">
 			<input class="form-control user-input" placeholder="Email">
 			<input class="form-control user-input" placeholder="Password">
 			<button onclick="location.href='/home'" class="user-btn">Login</button>
 			<h5>Need an account?</h5>
-			<button onclick="location.href='/signup'"class="user-btn">Sign Up</button>
+			<button onclick="location.href='/signup'" class="user-btn">Sign Up</button>
 		</div>
 	</div>
 </body>
