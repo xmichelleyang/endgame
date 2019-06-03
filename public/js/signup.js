@@ -1,3 +1,5 @@
+// Javscript Helper file for signup.handlebar
+
 $(document).ready(() => {
 
   // Your web app's Firebase configuration
@@ -16,7 +18,7 @@ $(document).ready(() => {
   // Define it as database
   const database = firebase.database();
 
-  // Adding
+  // Updating user info to firebase
   $("#signUp").click(() => {
     const name = $("#userName").val();
     const pw = $("#userPW").val();
