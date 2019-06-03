@@ -56,43 +56,46 @@ database.ref("user_meds/").on("value", (snapshot) => {
         // Get all keys with day (i.e. "Sunday")
         if (weekday.indexOf(medInfo) >= 0) {
           // Medication Time
-          var medTime = thisMed[medInfo];
+          var medTimes = thisMed[medInfo];
+          for (var medTimeIndex in medTimes) {
+            var medTime = medTimes[medTimeIndex];
 
-          // from 24hr format to 12hr format
-          var H = +medTime.toString().substr(0, 2);
-          var h = H % 12 || 12;
-          var ampm = (H < 12 || H === 24) ? "AM" : "PM";
-          var medTime12 = h + medTime.toString().substr(2, 3) + ampm;
+            // from 24hr format to 12hr format
+            var H = +medTime.toString().substr(0, 2);
+            var h = H % 12 || 12;
+            var ampm = (H < 12 || H === 24) ? "AM" : "PM";
+            var medTime12 = h + medTime.toString().substr(2, 3) + ampm;
 
-          // Calculating Medication time - Current Time to set up Alarm
-          // Currently only set alarm for the following week
-          var dayDif = weekday.indexOf(medInfo) - weekday.indexOf(todayDay); // i.e. Monday - Sunday = 1
-          // Getting current time format when before noon is #:##. The following makes it 0#:##, which match time in firebase
-          if (curTime.charAt(1) == ':')
-            curTime = "0" + curTime;
-          var hhDif = medTime.toString().substr(0, 2) - curTime.toString().substr(0, 2);
-          var mmDif = medTime.toString().substr(3, 5) - curTime.toString().substr(3, 5);
+            // Calculating Medication time - Current Time to set up Alarm
+            // Currently only set alarm for the following week
+            var dayDif = weekday.indexOf(medInfo) - weekday.indexOf(todayDay); // i.e. Monday - Sunday = 1
+            // Getting current time format when before noon is #:##. The following makes it 0#:##, which match time in firebase
+            if (curTime.charAt(1) == ':')
+              curTime = "0" + curTime;
+            var hhDif = medTime.toString().substr(0, 2) - curTime.toString().substr(0, 2);
+            var mmDif = medTime.toString().substr(3, 5) - curTime.toString().substr(3, 5);
 
-          // Time difference in milli second
-          var alarmInMS = ((dayDif * 24 + hhDif) * 60 + mmDif) * 60000;
+            // Time difference in milli second
+            var alarmInMS = ((dayDif * 24 + hhDif) * 60 + mmDif) * 60000;
 
-          // Handle a case that alarmInMS is negative, so a whole week needs to be added
-          alarmInMS = (alarmInMS < 0) ? alarmInMS += (7 * 24 * 60 * 60 * 1000) : alarmInMS;
-          console.log("Alarm is set in " + dayDif + " days " + hhDif + " HR " + mmDif + " Minutes to notify that " + medName + " needs to be taken at " + medTime12 + ". Text will be sent to " + userPhone + ".");
-          // After "alarmInMS" milliseconds, sends out a text to remind of taking a medicine
-          setTimeout(function() {
-            client.messages.create({
-                body: 'It is ' + medTime12 + ' now. Take ' + medName + ". Have a nice day!",
-                to: userPhone,
-                from: '+13236010150' // Endgame Number
-              })
-              .then((message) => console.log(message.sid));
-          }, alarmInMS);
+            // Handle a case that alarmInMS is negative, so a whole week needs to be added
+            alarmInMS = (alarmInMS < 0) ? alarmInMS += (7 * 24 * 60 * 60 * 1000) : alarmInMS;
+            console.log("Alarm is set in " + dayDif + " days " + hhDif + " HR " + mmDif + " Minutes to notify that " + medName + " needs to be taken at " + medTime12 + ". Text will be sent to " + userPhone + ".");
+            // After "alarmInMS" milliseconds, sends out a text to remind of taking a medicine
+            setTimeout(function() {
+              client.messages.create({
+                  body: 'It is ' + medTime12 + ' now. Take ' + medName + ". Have a nice day!",
+                  to: userPhone,
+                  from: '+13236010150' // Endgame Number
+                })
+                .then((message) => console.log(message.sid));
+            }, alarmInMS);
 
-          // Once alarm is set, update alarm property so it does not duplicate message
-          database.ref("user_meds/" + medName).update({
-            alarm: true
-          });
+            // Once alarm is set, update alarm property so it does not duplicate message
+            database.ref("user_meds/" + medName).update({
+              alarm: true
+            });
+          }
         }
       }
     }

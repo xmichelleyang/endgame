@@ -16,7 +16,7 @@ $(document).ready(() => {
   // Define it as database
   const database = firebase.database();
 
-// Helper function to get today's date (i.e. Sunday)
+  // Helper function to get today's date (i.e. Sunday)
   Date.prototype.getWeekDay = function() {
     var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return weekday[this.getDay()];
@@ -45,21 +45,25 @@ $(document).ready(() => {
             // If medication needs to be taken today
             if (sched === day) {
               var time = snapshot.key;
+
               if (dosage == null)
                 dosage = 0;
               if (side_effects == null)
                 side_effects = "None";
               database.ref("user_meds/" + med + "/" + sched).on("value", (snapshot) => {
                 // Time of Medication
-                var medTime = snapshot.val();
-                // Changing it from 24hr to 12hr format
-                var H = +medTime.toString().substr(0, 2);
-                var h = H % 12 || 12;
-                var ampm = (H < 12 || H === 24) ? "AM" : "PM";
-                var medTime12 = h + medTime.toString().substr(2, 3) + ampm;
+                var medTimes = snapshot.val(); //thisMed[medInfo];
+                var medTime;
+                for (var medTimeIndex in medTimes) {
+                  medTime = medTimes[medTimeIndex];
+                  // Changing it from 24hr to 12hr format
+                  var H = +medTime.toString().substr(0, 2);
+                  var h = H % 12 || 12;
+                  var ampm = (H < 12 || H === 24) ? "AM" : "PM";
+                  var medTime12 = h + medTime.toString().substr(2, 3) + ampm;
 
-                // Applying to Home Page
-                $("#med-today").append(`
+                  // Applying to Home Page
+                  $("#med-today").append(`
               		<div class="card bg-light mb-3" onclick="location.href='/medInfo/${med}'">
               			<h5 class="card-header"> ${med} <span style="float: right;"> ${medTime12} </span></h5>
               			<div class="card-body">
@@ -68,6 +72,7 @@ $(document).ready(() => {
               			</div>
               		</div>
                 `);
+                }
               })
             }
           })
