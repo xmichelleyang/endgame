@@ -33,20 +33,18 @@ Improvements
 
 #### Handlebar Files
 404.handlebars
-  * Displays a "Page not found" message
+  * Displays a "Page not found" message  
 addMed.handlebars
-  * Displays add medication page
-day.handlebars
-  * Displays 
+  * Displays add medication page  
 home.handlebars
-  * Displays home page
+  * Displays home page  
 index.handlebars
-  * Displays log-in page, with sign-up page option
+  * Displays log-in page, with sign-up page option  
 medInfo.handlebars
-  * Displays information for individual medication
+  * Displays information for individual medication  
 overview.handlebars
-  * Displays overview page, showing a week of medicine
+  * Displays overview page, showing a week of medicine  
 profile.handlebars
-  * Displays user profile page
+  * Displays user profile page  
 signup.handlebars
-  * Displays sign-up page
+  * Displays sign-up page  
