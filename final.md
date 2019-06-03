@@ -53,6 +53,12 @@ profile.handlebars
   
 signup.handlebars  
   - Displays sign-up page  
+  
+header.handlebars
+  - Partial that includes all necessary code for the header
+  
+footer.handlebars
+  - Partial that includes all necessary code for the footer
 
 ### HTML Files
 header.html
