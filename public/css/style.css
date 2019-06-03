@@ -1,4 +1,9 @@
 /* Team Endgame Style */
+
+/* Description: style.css serves as the primary form of style regulator for
+ * the Medilarm app. It outlines the general background, font, as well as
+ * element-specific modifications that improve the user interface. */
+
 /* *************************************************************** */
 /* General Body Structure */
 body {
@@ -203,7 +208,7 @@ ion-icon {
 
 
 .btn-secondary{
-  background-color:#2E4595;
+  color:#2E4595;
   border: none;
   color: white;
   padding: 16px 32px;

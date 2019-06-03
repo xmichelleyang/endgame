@@ -1,4 +1,9 @@
-// Javscript Helper file for signup.handlebar
+/* Description: signup.js is the JavaScript Helper file for signup.handlebars.
+ * It essentially handles all components to a new user sign-up, from the
+ * connection to Firebase to the actual storage of the user's information.
+ */
+
+/************************************************************************/
 
 $(document).ready(() => {
 
@@ -30,5 +35,7 @@ $(document).ready(() => {
       email: email,
       phone: phone
   	});
+
   });
+  
 });

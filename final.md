@@ -42,6 +42,9 @@ home.handlebars
 index.handlebars  
   - Displays log-in page, with sign-up page option  
   
+day.handlebars
+  - Displays placeholder information in case of incorrect date
+  
 medInfo.handlebars  
   - Displays information for individual medication  
   
@@ -53,6 +56,12 @@ profile.handlebars
   
 signup.handlebars  
   - Displays sign-up page  
+  
+header.handlebars
+  - Partial that includes all necessary code for the header
+  
+footer.handlebars
+  - Partial that includes all necessary code for the footer
 
 ### HTML Files
 header.html
@@ -92,3 +101,6 @@ style.css
  
 ## Google Slide Link
 [Medilarm](https://docs.google.com/presentation/d/1J0QwBt-8_NaC1ZSOFMOepTxeFEpRSkRm9UihSf2RCQA/edit?usp=sharing)
+
+## Video
+[Medilarm Video](https://drive.google.com/a/ucsd.edu/file/d/1GVITjswJqYuJUUBHp1Tbw7dQTuqlkxMm/view?usp=sharing)
